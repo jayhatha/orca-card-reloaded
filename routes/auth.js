@@ -6,35 +6,42 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 router.post('/signup', (req, res) => {
-  db.user.findOrCreate({
-    where: { email: req.body.email },
-    defaults: {
-      username: req.body.name,
-      password: req.body.password
-    }
-  }).spread(function (user, created) {
-    if (created) {
-      // no record was found, so we created one
-      console.log('><><>< JUST ABOUT TO SIGN THE TOKEN ><><><');
-      var token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
-      // return user and token to frontend app
-      res.json({user, token});
-    } else {
-      // we found a record, so they can't use that email
-      console.log('We got an error creating the user');
-      console.log(err);
-      res.status(401).json(err);
-    }
-  // }).catch(function (error) {
-  //   // catch any additional errors
-  //   console.log('There was a problem creating the account.');
-  //   res.status(401).json(error);
-  });
+  db.user
+    .findOrCreate({
+      where: { email: req.body.email },
+      defaults: {
+        username: req.body.name,
+        password: req.body.password
+      }
+    })
+    .spread(function(user, created) {
+      if (created) {
+        // no record was found, so we created one
+        console.log("><><>< JUST ABOUT TO SIGN THE TOKEN ><><><");
+        var token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
+          expiresIn: 60 * 60 * 24
+        });
+        let cvv = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+        db.card.create({
+          userId: user.id,
+          cvv: cvv.toString(),
+          balance: 0,
+          isactive: true,
+          passenger_type: 'adult'
+        });
+        res.json({ user, token });
+      } else {
+        // we found a record, so they can't use that email
+        console.log("We got an error creating the user");
+        console.log(err);
+        res.status(401).json(err);
+      }
+    })
 });
 
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
   // Look up user in DB by email
-  db.user.find({where: { email: req.body.email }}).then(function (user, err) {
+  db.user.find({ where: { email: req.body.email } }).then(function(user, err) {
     if (user) {
       // if user: check password input against hash
       let hash = user.password;
@@ -43,30 +50,30 @@ router.post('/login', (req, res) => {
         var token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
           expiresIn: 60 * 60 * 24
         });
-        res.json({user, token});
+        res.json({ user, token });
       } else {
         // else send error to frontend
         res.status(401).json({
           error: true,
           message: 'Email or password is incorrect.'
-        })
+        });
       }
     } else {
       // else send error to frontend
       res.status(401).json(err);
     }
-  })
-})
+  });
+});
 
 router.post('/me/from/token', (req, res) => {
-  let token = req.body.token;
+  const token = req.body.token;
   // check for presence of a token
   if (!token) {
     // no token sent
     res.status(401).json({
       error: true,
       message: 'You must pass a token'
-    })
+    });
   } else {
     // token sent
     // validate the token
@@ -74,18 +81,18 @@ router.post('/me/from/token', (req, res) => {
       if (err) {
         res.status(401).json(err);
       } else {
-        db.user.find(id, function(err, user) {
+        db.user.find({ where: { id: user.id } }).then(function (err, user) {
           // if valid: lookup user in DB based on token info => send user and token back to frontend
           // else: send err
           if (err) {
             res.status(401).json(err);
           } else {
-            res.json({user, token});
+            res.json({ user, token });
           }
-        })
+        });
       }
-    })
+    });
   }
-})
+});
 
 module.exports = router;
