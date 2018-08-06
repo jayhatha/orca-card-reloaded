@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: function (pendingUser, options) {
         if (pendingUser && pendingUser.password) {
-          var hash = bcrypt.hashSync(pendingUser.password, 10);
+          var hash = bcrypt.hashSync(pendingUser.password, 12);
           pendingUser.password = hash;
         }
       }
