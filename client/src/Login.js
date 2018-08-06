@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
@@ -13,7 +12,7 @@ const Login = props => {
           name="email"
           label="Email"
           type="text"
-          className="emailField"
+          className="inputField"
           value={props.email}
           onChange={props.handleInputChange}
           margin="normal"
@@ -23,7 +22,7 @@ const Login = props => {
           name="password"
           label="Password"
           type="password"
-          className="passwordField"
+          className="inputField"
           value={props.password}
           onChange={props.handleInputChange}
           margin="normal"
