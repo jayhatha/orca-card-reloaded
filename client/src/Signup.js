@@ -1,60 +1,49 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-class Signup extends Component {
-    constructor(props){
-      super(props)
-      this.state = {
-        name: '',
-        email: '',
-        password: ''
-      }
-      this.handleNameChange = this.handleNameChange.bind(this);
-      this.handleEmailChange = this.handleEmailChange.bind(this);
-      this.handlePasswordChange = this.handlePasswordChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      }
-
-handleNameChange(e) {
-  this.setState({
-    name: e.target.value
-  })
-}
-
-handleEmailChange(e) {
-  this.setState ({
-    email: e.target.value
-  })
-}
-
-handlePasswordChange(e) {
-  this.setState ({
-    password: e.target.value
-  })
-}
-
-handleSubmit(e) {
-  e.preventDefault();
-  axios.post('/auth/signup', {
-    name: this.state.name,
-    email: this.state.email,
-    password: this.state.password
-  }).then( result => {
-    localStorage.setItem('mernToken', result.data.token)
-    this.props.liftToken(result.data)
-  }).catch( err => console.log(err) )
-}
-
-render() {
+const Signup = props => {
   return (
-    <form onSubmit={this.handleSubmit}>
-      Name: <input type='text' value={this.state.name} onChange={this.handleNameChange} /><br />
-      Email: <input type='email' value={this.state.email} onChange={this.handleEmailChange} /><br />
-      Password: <input type='password' value={this.state.password} onChange={this.handlePasswordChange} /><br />
-      <input type="submit" value="SIGN UP" />
-    </form>
+    <div className="form-container">
+        <div className="signup-header">
+          <h4>Sign up now to get all the benefits of Orca!</h4>
+        </div>
+        <form onSubmit={props.handleSubmit}>
+          <TextField
+            id="name"
+            name="name"
+            type="text"
+            label="Name"
+            className="inputField"
+            value={props.name}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="email"
+            name="email"
+            type="text"
+            label="Email"
+            className="inputField"
+            value={props.email}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="password"
+            name="password"
+            type="password"
+            label="Password"
+            className="inputField"
+            value={props.password}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <Button variant="contained" color="primary" type="submit" value="Sign up">Sign up</Button>
+        </form>
+        <p className="alert-msg">{(props.response) ? props.response.message : ''}</p>
+      </div>
   )
-}
 }
 
 export default Signup;

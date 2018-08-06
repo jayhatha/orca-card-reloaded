@@ -1,69 +1,42 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
 
-class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: '',
-      response: null
-    }
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+// Add this in below once the router is set up:
+/* <div id="login-link">
+  <Link to={"/signup"}>Not a member? Sign up today!</Link>
+</div> */
 
-  handleEmailChange(e) {
-    this.setState({
-      email: e.target.value
-    })
-  }
-
-  handlePasswordChange(e) {
-    this.setState({
-      password: e.target.value
-    })
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    axios.post('/auth/login', {
-      email: this.state.email,
-      password: this.state.password
-    }).then( result => {
-      if (result.data.hasOwnProperty('error')) {
-        this.setState({
-          response: result.data
-        })
-      } else {
-        localStorage.setItem('mernToken', result.data.token)
-        this.props.liftToken(result.data);
-        this.setState({
-          response: null,
-        })
-      }
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <p>{this.state.response ? this.state.response.message : ''}</p>
-        <form onSubmit={this.handleSubmit}>
-          Email: <input type="email"
-                        value={this.state.email}
-                        onChange={this.handleEmailChange}
-                  /> <br />
-          Password: <input type="password"
-                           value={this.state.password}
-                           onChange={this.handlePasswordChange}
-                    />
-          <input type="submit" value="Log In"/>
-        </form>
-      </div>
-    )
-  }
+const Login = props => {
+  return (
+    <div className="form-container">
+      <form onSubmit={props.handleSubmit}>
+        <TextField
+          id="email"
+          name="email"
+          label="Email"
+          type="text"
+          className="inputField"
+          value={props.email}
+          onChange={props.handleInputChange}
+          margin="normal"
+        /><br />
+        <TextField
+          id="password"
+          name="password"
+          label="Password"
+          type="password"
+          className="inputField"
+          value={props.password}
+          onChange={props.handleInputChange}
+          margin="normal"
+        /><br />
+        <Button id="login-btn" variant="contained" color="primary" type="submit" value="Log In">Log In</Button>
+      </form>
+      <p className="alert-msg">{(props.response) ? props.response.message : ''}</p>
+    </div>
+  )
 }
 
 export default Login
