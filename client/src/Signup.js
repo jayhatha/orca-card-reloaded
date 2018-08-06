@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import SimpleSelect from './SimpleSelect';
 
 const Signup = props => {
+  const { classes } = props;
+
   return (
     <div className="form-container">
         <div className="signup-header">
@@ -10,12 +13,32 @@ const Signup = props => {
         </div>
         <form onSubmit={props.handleSubmit}>
           <TextField
-            id="name"
-            name="name"
+            id="first"
+            name="first"
             type="text"
-            label="Name"
+            label="First Name"
             className="inputField"
-            value={props.name}
+            value={props.first}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="last"
+            name="last"
+            type="text"
+            label="Last Name"
+            className="inputField"
+            value={props.last}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="username"
+            name="username"
+            type="text"
+            label="Username"
+            className="inputField"
+            value={props.username}
             onChange={props.handleInputChange}
             margin="normal"
           /><br />
@@ -26,6 +49,79 @@ const Signup = props => {
             label="Email"
             className="inputField"
             value={props.email}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="phone"
+            name="phone"
+            type="text"
+            label="Phone"
+            className="inputField"
+            value={props.phone}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <p>Date of Birth:</p>
+          <TextField
+            id="dob"
+            name="dob"
+            type="date"
+            className="inputField"
+            value={props.dob}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <p>Address</p>
+          <TextField
+            id="street"
+            name="street"
+            type="text"
+            label="Street"
+            className="inputField"
+            value={props.street}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="city"
+            name="city"
+            type="text"
+            label="City"
+            className="inputField"
+            value={props.city}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="state"
+            name="state"
+            type="text"
+            label="State"
+            className="inputField"
+            value={props.state}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <TextField
+            id="zip"
+            name="zip"
+            type="text"
+            label="Zipcode"
+            className="inputField"
+            value={props.zip}
+            onChange={props.handleInputChange}
+            margin="normal"
+          /><br />
+          <p>Choose a secret question:</p>
+          <SimpleSelect></SimpleSelect><br />
+          <TextField
+            id="answer"
+            name="answer"
+            type="text"
+            label="Answer"
+            className="inputField"
+            value={props.answer}
             onChange={props.handleInputChange}
             margin="normal"
           /><br />
