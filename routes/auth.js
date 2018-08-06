@@ -5,39 +5,6 @@ var db = require('../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const tokenForUser = (user) => {
-  const timestamp = new Date().getTime();
-  return jwt.encode({sub: user.id, iat: timestamp}, process.env.JWT_SECRET);
-};
-
-const signin = (req, res, next) => {
-  res.send({ token: tokenForUser(req.user) });
-};
-
-const signup = (req, res, next) => {
-  const {username, email, password} = req.body;
-  const saltRounds = 12;
-
-  if (!email || !password) {
-    res.status(422).send({error: 'You must provide an email and a password.'});
-  }
-
-  bcrypt.hash(password, saltRounds)
-    .then((hash) => {
-      return createUser(name, email, hash)
-        .then((newUser) => {
-          res.json({token: tokenForUser(newUser)});
-        })
-        .catch((err) => {
-          res.json({error: 'Error saving user to database.'});
-        })
-    })
-    .catch((err) => {
-      return next(err);
-    });
-}
-
-
 router.post('/signup', (req, res) => {
   db.user.findOrCreate({
     where: { email: req.body.email },
@@ -67,11 +34,11 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   // Look up user in DB by email
-  db.user.findOne({where: { email: req.body.email }}, function (err, user) {
+  db.user.find({where: { email: req.body.email }}).then(function (user, err) {
     if (user) {
       // if user: check password input against hash
-      console.log('found user ' + user + ', about to check password');
-      if (user.authenticated(req.body.password)) {
+      let hash = user.password;
+      if (bcrypt.compareSync(req.body.password, hash)) {
         // if match: sign a token
         var token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
           expiresIn: 60 * 60 * 24
