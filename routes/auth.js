@@ -67,7 +67,7 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   // Look up user in DB by email
-  db.user.find({where: { email: req.body.email }}, function (err, user) {
+  db.user.findOne({where: { email: req.body.email }}, function (err, user) {
     if (user) {
       // if user: check password input against hash
       console.log('found user ' + user + ', about to check password');
