@@ -1,54 +1,62 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-
-// this makes a new schema for a collection
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [ true, 'A name is required.' ],
-        minLength: [ 1, 'Name must be between 1 and 99 characters.' ],
-        maxLength: [ 99, 'Name must be between 1 and 99 characters.' ]
+'use strict';
+var bcrypt = require('bcryptjs');
+module.exports = (sequelize, DataTypes) => {
+  var user = sequelize.define('user', {
+    first: DataTypes.STRING,
+    last: DataTypes.STRING,
+    username: { type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 99],
+          msg: 'Invalid name. Must be between 1 and 99 characters.'
+        }
+      }
     },
-    email: {
-        type: String,
-        required: [ true, 'Please enter an email address.' ],
-        minLength: [ 1, 'Name must be between 1 and 99 characters.' ],
-        maxLength: [ 99, 'Name must be between 1 and 99 characters.' ]
+    email: { type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          msg: 'Invalid email address.'
+        }
+      }
     },
+    phone: DataTypes.STRING,
+    street: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.STRING,
+    question: DataTypes.STRING,
+    answer: DataTypes.STRING,
     password: {
-        type: String,
-        required: [ true, 'A password is required.' ],
-        minLength: [ 8, 'Password must be between 8 and 99 characters.' ],
-        maxLength: [ 99, 'Name must be between 8 and 99 characters.' ]
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [8, 99],
+          msg: 'Password must be between 8 and 99 characters.'
+        }
+      }
     }
-});
-
-// this returns user object without password
-userSchema.set('toObject', {
-    transform: function(doc, ret, options) {
-        let returnJson = {
-            _id: ret._id,
-            email: ret.email,
-            name: ret.name
-        };
-        return returnJson;
+  }, {
+    hooks: {
+      beforeCreate: function (pendingUser, options) {
+        if (pendingUser && pendingUser.password) {
+          var hash = bcrypt.hashSync(pendingUser.password, 10);
+          pendingUser.password = hash;
+        }
+      }
     }
-});
-
-// this checks to see if password matches what's in the db
-userSchema.methods.authenticated = function(password, cb) {
-    return bcrypt.compareSync(password, this.password);
+  });
+  user.associate = function (models) {
+    // associations can be defined here
+    // here we check the entered password against the hashed pw in the db
+    user.prototype.validPassword = function (passwordTyped) {
+      return bcrypt.compareSync(passwordTyped, this.password);
+    };
+    // this removes the password for serializing
+    user.prototype.toJSON = function () {
+      var userData = this.get();
+      delete userData.password;
+      return userData;
+    };
+  };
+  return user;
 };
-
-userSchema.pre('save', function(next) {
-  if (this.isNew) {
-    let hash = bcrypt.hashSync(this.password, 12);
-    this.password = hash;
-  }
-  next();
-});
-
-// make a new model from that Schema
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
