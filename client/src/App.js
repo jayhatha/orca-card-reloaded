@@ -4,6 +4,7 @@ import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
 import MenuAppBar from './MenuAppBar';
+import Footer from './Footer';
 import { UserProfile } from './UserProfile';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -86,6 +87,7 @@ class App extends Component {
           <MenuAppBar user={this.state.user} logout={this.logout}/>
           <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
+          <Footer className="footer"/>
         </div>
       </Router>
     )
