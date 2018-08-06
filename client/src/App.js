@@ -4,7 +4,7 @@ import './App.css';
 import Login from './Login';
 import Signup from './Signup';
 import { UserProfile } from './UserProfile';
-
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -79,23 +79,14 @@ class App extends Component {
   }
 
   render() {
-    let user = this.state.user;
-    if (user) {
-      return (
+    return(
+      <Router>
         <div className="App">
-          <UserProfile user={user} logout={this.logout}/>
-          <a onClick={this.handleClick}> Test the protected route</a>
-          <p>{this.state.lockedResult}</p>
+          <Route exact path="/signup" component = {() => <Signup liftToken={this.liftTokenToState} />} />
+          <Route exact path="/login" component = {() => <Login liftToken={this.liftTokenToState} />} />
         </div>
-      );
-    } else {
-      return (
-        <div className="App">
-          <Signup liftToken={this.liftTokenToState} />
-          <Login liftToken={this.liftTokenToState} />
-        </div>
-      )
-    }
+      </Router>
+    )
   }
 }
 
