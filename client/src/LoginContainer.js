@@ -16,7 +16,7 @@ class LoginContainer extends Component {
   }
 
   // Handles changes to email and password fields
-  handleInputChange(e) {
+  handleInputChange = e => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -24,7 +24,7 @@ class LoginContainer extends Component {
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     axios.post('/auth/login', {
       email: this.state.email,
@@ -48,8 +48,8 @@ class LoginContainer extends Component {
 
   render() {
     return (
-      <Login handleInputChange={() => this.handleInputChange}
-             handleSubmit={() => this.handleSubmit}
+      <Login handleInputChange={this.handleInputChange}
+             handleSubmit={this.handleSubmit}
              email={this.state.email}
              password={this.state.password}
              response={this.state.response}

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Signup from './Signup';
 import axios from 'axios';
 
-class Signup extends Component {
+class SignupContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -25,7 +25,7 @@ class Signup extends Component {
     }
 
   // Handles changes to email and password fields
-  handleInputChange(e) {
+  handleInputChange = e => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -33,7 +33,7 @@ class Signup extends Component {
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     axios.post('/auth/signup', {
       first: this.state.first,
@@ -57,7 +57,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <Signup handleInputChange={() => this.handleInputChange}
+      <Signup handleInputChange={this.handleInputChange}
               {...this.state}
       />
     )
