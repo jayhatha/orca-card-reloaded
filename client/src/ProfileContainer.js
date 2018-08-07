@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import ProfileInfo from './ProfileInfo';
+import Cards from './Cards';
+import Activity from './Activity';
 
 
 class ProfileContainer extends Component {
