@@ -41,7 +41,7 @@ class LoginContainer extends Component {
           response: null,
         })
         // Redirect to home here...
-        this.props.history.push("/");
+        this.props.history.push("/profile");
       }
     })
   }
