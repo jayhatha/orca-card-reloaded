@@ -2,6 +2,7 @@ import React from 'react';
 
 const Cards = props => {
   return (
+    <div>
     <div className='card-container'>
       <div className='card-nickname'><h3>Scott's Card</h3></div>
       <div className='card-top'>
@@ -14,8 +15,9 @@ const Cards = props => {
         <div className='card-serial'>0111001</div>
         <div className='card-passes'><p>AUTO-LOAD: $25</p><p>PUGETPASS SEP18 $2.75</p></div>
       </div>
-      <div className='card-buttons'>SHUT UP</div>
     </div>
+    <div className='card-buttons'>auto-load / pass / reload buttons go here</div>
+  </div>
   );
 };
 

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .inputField {
@@ -27,13 +27,26 @@ body {
 }
 /* =^..^=   =^..^=   =^..^=  CARD STYLES  =^..^=    =^..^=    =^..^=    =^..^= */
 .card-container {
-  /* size of card goes here */
-  /* also make it centered */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(34, 115, 236);
+  width: 90%;
+  border-radius: 0.9rem;
+  margin: 0 auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+@media screen and (min-width: 768px) {
+  .card-container {
+    width: 40%;
+  }
 }
 
 .card-nickname h2 {
   font-family: 'Roboto', sans-serif;
-  font-size: 2em;
+  font-size: 2rem;
   color: black;
 }
 
@@ -44,19 +57,42 @@ body {
 }
 
 .card-balance,
-.card-serial {
+.card-bottom,
+.card-passes,
+.card-serial,
+.card-top {
   color: ghostwhite;
+  font-family: 'Nunito', sans-serif;
 }
 
 .card-top {}
 
-.card-balance {}
+.card-balance h1 {
+  font-size: 4rem;
+  margin-top: 0;
+}
 
-.card-bottom {}
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-.card-serial {}
+.card-serial {
+  padding-left: 1rem;
+  text-align: left;
+}
 
-.card-passes {}
+.card-passes {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.card-passes,
+.card-serial {
+  font-size: 1rem;
+  display: flex;
+}
 
 .card-buttons {}
 
