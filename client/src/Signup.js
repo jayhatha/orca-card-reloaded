@@ -21,6 +21,7 @@ const Signup = props => {
             value={props.first}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="last"
@@ -31,6 +32,7 @@ const Signup = props => {
             value={props.last}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="username"
@@ -41,6 +43,7 @@ const Signup = props => {
             value={props.username}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="email"
@@ -51,6 +54,7 @@ const Signup = props => {
             value={props.email}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="phone"
@@ -61,6 +65,7 @@ const Signup = props => {
             value={props.phone}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <p>Date of Birth:</p>
           <TextField
@@ -71,6 +76,7 @@ const Signup = props => {
             value={props.dob}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <p>Address</p>
           <TextField
@@ -82,6 +88,7 @@ const Signup = props => {
             value={props.street}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="city"
@@ -92,6 +99,7 @@ const Signup = props => {
             value={props.city}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="state"
@@ -102,6 +110,7 @@ const Signup = props => {
             value={props.state}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="zip"
@@ -112,6 +121,7 @@ const Signup = props => {
             value={props.zip}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <p>Choose a secret question:</p>
           <SimpleSelect></SimpleSelect><br />
@@ -124,6 +134,7 @@ const Signup = props => {
             value={props.answer}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <TextField
             id="password"
@@ -134,6 +145,7 @@ const Signup = props => {
             value={props.password}
             onChange={props.handleInputChange}
             margin="normal"
+            required
           /><br />
           <Button variant="contained" color="primary" type="submit" value="Sign up">Sign up</Button>
         </form>

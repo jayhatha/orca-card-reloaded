@@ -16,6 +16,7 @@ const Login = props => {
           value={props.email}
           onChange={props.handleInputChange}
           margin="normal"
+          required
         /><br />
         <TextField
           id="password"
@@ -26,6 +27,7 @@ const Login = props => {
           value={props.password}
           onChange={props.handleInputChange}
           margin="normal"
+          required
         /><br />
         <Button id="login-btn" variant="contained" color="primary" type="submit" value="Log In">Log In</Button>
       </form>
