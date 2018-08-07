@@ -9,19 +9,19 @@ import SignupContainer from './SignupContainer';
 import MenuAppBar from './MenuAppBar';
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import store from './store';
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUser: (token, user) => {
-      dispatch(updateUser(token, user))
+    updateUser: (userData) => {
+      dispatch(updateUser(userData))
     }
   }
 }
 
 const mapStatetoProps = state => {
   return {
-    token: state.token,
-    user: state.user
+    user: state.username
   }
 }
 
@@ -34,14 +34,16 @@ class App extends Component {
   }
 
   liftTokenToState(data) {
-    this.props.updateUser(data.token, data.user);
+    this.props.updateUser(data);
+    console.log("Store is: ")
+    console.log(store.getState())
   }
 
   logout() {
     // remove token from local storage
     localStorage.removeItem('mernToken');
     // remove info from state
-    this.props.updateUser('', null);
+    this.props.updateUser(null);
   }
 
   checkForLocalToken() {
@@ -51,7 +53,7 @@ class App extends Component {
       // There was no token
       // remove mernToken from local storage just in case corrupted, replaced etc
       localStorage.removeItem('mernToken')
-      this.props.updateUser('', null);
+      this.props.updateUser(null);
     } else {
       // token found in local storage
       // send it to the back to be verified
@@ -60,7 +62,7 @@ class App extends Component {
       }).then( results => {
         // put the token in local storage
         localStorage.setItem('mernToken', results.data.token);
-        this.props.updateUser(results.data.token, results.data.user);
+        this.props.updateUser(results.data);
         }).catch( err => console.log(err))
     }
   }
