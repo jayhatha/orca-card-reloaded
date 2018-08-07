@@ -20,30 +20,31 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     dob: DataTypes.DATE,
-    phone: {type: DataTypes.STRING,
+    phone: {
+      type: DataTypes.STRING,
       validate: {
         isNumeric: {
           args: true,
           msg: 'Please enter a valid phone number.'
         },
         len: {
-          args: 10,
+          args: [10, 10],
           msg: 'Please enter a valid phone number.'
         }
-      },
-      street: DataTypes.STRING,
-      city: DataTypes.STRING,
-      state: DataTypes.STRING,
-      zip: DataTypes.STRING,
-      question: DataTypes.STRING,
-      answer: DataTypes.STRING,
-      password: {
-        type: DataTypes.STRING,
-        validate: {
-          len: {
-            args: [8, 99],
-            msg: 'Password must be between 8 and 99 characters.'
-          }
+      }
+    },
+    street: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.STRING,
+    question: DataTypes.STRING,
+    answer: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [8, 99],
+          msg: 'Password must be between 8 and 99 characters.'
         }
       }
     }
