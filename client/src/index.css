@@ -25,3 +25,9 @@ body {
 .footer-link {
   display: block;
 }
+
+.map-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
