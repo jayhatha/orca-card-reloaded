@@ -10,8 +10,19 @@ router.post('/signup', (req, res) => {
     .findOrCreate({
       where: { email: req.body.email },
       defaults: {
-        username: req.body.name,
-        password: req.body.password
+        username: req.body.username,
+        password: req.body.password,
+        first: req.body.first,
+        last: req.body.last,
+        phone: req.body.phone,
+        dob: req.body.dob,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        password: req.body.password,
+        question: req.body.question,
+        answer: req.body.answer
       }
     })
     .spread(function(user, created) {

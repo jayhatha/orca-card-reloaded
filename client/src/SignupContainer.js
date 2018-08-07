@@ -57,7 +57,7 @@ class SignupContainer extends Component {
 
   render() {
     return (
-      <Signup handleInputChange={this.handleInputChange}
+      <Signup handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange}
               {...this.state}
       />
     )
