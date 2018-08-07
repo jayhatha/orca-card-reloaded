@@ -20,7 +20,6 @@ router.post('/signup', (req, res) => {
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip,
-        password: req.body.password,
         question: req.body.question,
         answer: req.body.answer
       }
@@ -92,10 +91,10 @@ router.post('/me/from/token', (req, res) => {
       if (err) {
         res.status(401).json(err);
       } else {
-        db.user.find({ where: { id: user.id } }).then(function (err, user) {
+        db.user.find({ where: { id: user.id } }).then(function (user) {
           // if valid: lookup user in DB based on token info => send user and token back to frontend
           // else: send err
-          if (err) {
+          if (!user) {
             res.status(401).json(err);
           } else {
             res.json({ user, token });

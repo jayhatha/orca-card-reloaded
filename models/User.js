@@ -20,19 +20,30 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     dob: DataTypes.DATE,
-    phone: DataTypes.STRING,
-    street: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    zip: DataTypes.STRING,
-    question: DataTypes.STRING,
-    answer: DataTypes.STRING,
-    password: {
-      type: DataTypes.STRING,
+    phone: {type: DataTypes.STRING,
       validate: {
+        isNumeric: {
+          args: true,
+          msg: 'Please enter a valid phone number.'
+        },
         len: {
-          args: [8, 99],
-          msg: 'Password must be between 8 and 99 characters.'
+          args: 10,
+          msg: 'Please enter a valid phone number.'
+        }
+      },
+      street: DataTypes.STRING,
+      city: DataTypes.STRING,
+      state: DataTypes.STRING,
+      zip: DataTypes.STRING,
+      question: DataTypes.STRING,
+      answer: DataTypes.STRING,
+      password: {
+        type: DataTypes.STRING,
+        validate: {
+          len: {
+            args: [8, 99],
+            msg: 'Password must be between 8 and 99 characters.'
+          }
         }
       }
     }
@@ -48,6 +59,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function (models) {
     // associations can be defined here
+    models.user.hasMany(models.card);
     // here we check the entered password against the hashed pw in the db
     user.prototype.validPassword = function (passwordTyped) {
       return bcrypt.compareSync(passwordTyped, this.password);
