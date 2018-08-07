@@ -3,8 +3,8 @@ import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import RetailLocation from './RetailLocation';
 import Button from '@material-ui/core/Button';
-import ReactMapboxGl, {Marker, Popup} from "react-mapbox-gl";
-
+import ReactMapboxGl, {Marker} from "react-mapbox-gl";
+import locations from './retailLocationData';
 
 class GetCardContainer extends Component {
   constructor(props) {
@@ -21,6 +21,20 @@ class GetCardContainer extends Component {
       name: "QFC",
       address: "123 Mercer St., Seattle WA 98109"
     }
+
+    const retailList = locations.map(location => {
+      return(<RetailLocation location={location}/>)
+    })
+
+    let markerArray = locations.map(location => {
+      return (<div>
+              <Marker
+                coordinates={[location.lng, location.lat]}
+                anchor="bottom">
+                <img id='map-icon' alt='icon-logo for webpage' src='http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png'/>
+              </Marker>
+              </div>)
+    })
 
     return (
       <div>
@@ -39,11 +53,11 @@ class GetCardContainer extends Component {
             containerStyle={{
               height: "30vh"
             }}>
-           
+            {markerArray}
           </Map>
         </div>
         <div>
-          <RetailLocation location={location}/>
+          {retailList}
         </div>
       </div>
     )
