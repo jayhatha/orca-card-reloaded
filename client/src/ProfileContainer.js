@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 
 class ProfileContainer extends Component {
@@ -12,15 +13,17 @@ class ProfileContainer extends Component {
     // get user activity and cards from store
     }
 
-    
+
 
     render() {
         return (
           <div>
-            <h1>Hello</h1>
+          <ProfileInfo />
+          <Cards />
+          <Activity />
           </div>
         );
     }
 }
 
-export default ProfileContainer;
+export default withRouter(ProfileContainer);

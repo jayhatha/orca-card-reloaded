@@ -25,3 +25,37 @@ body {
 .footer-link {
   display: block;
 }
+/* =^..^=   =^..^=   =^..^=  CARD STYLES  =^..^=    =^..^=    =^..^=    =^..^= */
+.card-container {
+  /* size of card goes here */
+  /* also make it centered */
+}
+
+.card-nickname h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2em;
+  color: black;
+}
+
+.card-balance,
+.card-bottom,
+.card-top {
+  background-color: rgb(34, 115, 236);
+}
+
+.card-balance,
+.card-serial {
+  color: ghostwhite;
+}
+
+.card-top {}
+
+.card-balance {}
+
+.card-bottom {}
+
+.card-serial {}
+
+.card-passes {}
+
+.card-buttons {}
