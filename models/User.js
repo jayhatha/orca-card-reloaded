@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    dob: DataTypes.DATE,
     phone: DataTypes.STRING,
     street: DataTypes.STRING,
     city: DataTypes.STRING,
