@@ -47,7 +47,7 @@ class SignupContainer extends Component {
       state: this.state.state,
       zip: this.state.zip,
       password: this.state.password,
-      question: this.state.question,
+      question: this.state.secret,
       answer: this.state.answer
     }).then( result => {
       localStorage.setItem('mernToken', result.data.token)
