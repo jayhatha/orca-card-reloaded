@@ -1,6 +1,7 @@
-import {ACTION_TEST}  from "../constants/action_types";
+import {UPDATE_USER}  from "../constants/action_types";
 
-export const actionTest = (testVar) => ({
-  type: ACTION_TEST, 
-  payload: testVar
+export const updateUser = (token, user) => ({
+  type: UPDATE_USER,
+  token,
+  user
 })

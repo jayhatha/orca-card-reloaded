@@ -1,20 +1,20 @@
 import {combineReducers} from 'redux';
-import { } from '../actions/index';
+import { UPDATE_USER } from '../constants/action_types';
 
-const reducerOne = (state = initialState, action) => {
+const initialState = {token: '', user: null};
+
+const userReducer = (state = initialState, action) => {
 	switch(action.type) {
-		case ACTION_TEST:
-			console.log("received the test action")
-			var newVar = Array.from(state.testVar)
-		  newVar.push(action.payload)
-			return Object.assign({}, state, {testVar: newVar})
+		case UPDATE_USER:
+			console.log('received the test action')
+			return Object.assign({}, state, {token: action.token, user: action.user})
 		default:
 			return state
 	}
 }
 
 const rootReducer = combineReducers({
-  reducerOne,
+  userReducer,
 })
 
 export default rootReducer
