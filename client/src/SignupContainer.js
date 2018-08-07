@@ -52,6 +52,7 @@ class SignupContainer extends Component {
     }).then( result => {
       localStorage.setItem('mernToken', result.data.token)
       this.props.liftToken(result.data)
+      this.props.history.push("/profile");
     }).catch( err => console.log(err) )
   }
 

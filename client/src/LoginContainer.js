@@ -40,7 +40,7 @@ class LoginContainer extends Component {
         this.setState({
           response: null,
         })
-        // Redirect to home here...
+        // Redirect to profile here...
         this.props.history.push("/profile");
       }
     })
