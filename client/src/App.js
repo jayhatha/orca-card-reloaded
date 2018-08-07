@@ -7,6 +7,8 @@ import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
 import MenuAppBar from './MenuAppBar';
+import ProfileContainer from './ProfileContainer';
+import GetCardContainer from './GetCardContainer';
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import store from './store';
@@ -95,6 +97,8 @@ class App extends Component {
           <MenuAppBar user={this.props.user} logout={this.logout}/>
           <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
+          <Route exact path="/profile" component = {() => <ProfileContainer/>} />
+          <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
           <Footer className="footer"/>
         </div>
       </Router>
