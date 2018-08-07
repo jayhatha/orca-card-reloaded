@@ -49,9 +49,9 @@ class SimpleSelect extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={"q1"}>Who is your favorite Orca?</MenuItem>
-            <MenuItem value={"q2"}>What is your favorite type of whale?</MenuItem>
-            <MenuItem value={"q3"}>What kind of whale do you want to be?</MenuItem>
+            <MenuItem value={"What street did you live on in second grade?"}>What street did you live on in second grade?</MenuItem>
+            <MenuItem value={"In what city did you meet your spouse/significant other?"}>In what city did you meet your spouse/significant other?</MenuItem>
+            <MenuItem value={"What was the last name of your third grade teacher?"}>What was the last name of your third grade teacher?</MenuItem>
           </Select>
         </FormControl>
       </form>
