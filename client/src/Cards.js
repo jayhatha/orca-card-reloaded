@@ -3,6 +3,7 @@ import React from 'react';
 const Cards = props => {
   return (
     <div>
+      <h1>Your Cards</h1>
       <div className='card-container'>
         <div className='card-nickname'><h3>Scott's Card</h3></div>
         <div className='card-top'>

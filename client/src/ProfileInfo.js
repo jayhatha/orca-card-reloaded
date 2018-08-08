@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfileInfo = props => {
   return (
-    <div><h2>Hi {props.user.first}!</h2>
+    <div><h1>Hi, {props.user.first}!</h1>
     <p>Address:</p>
     <ul>
       <li>{props.user.street}</li>
