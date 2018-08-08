@@ -7,6 +7,7 @@ import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
 import Nav from './Navbar';
+import Home from './Home';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
 import Footer from './Footer';
@@ -81,6 +82,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Nav/>
+            <Route exact path="/" component= {() => <Home/>} />
             <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} />} />

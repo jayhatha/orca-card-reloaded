@@ -154,9 +154,19 @@ li {
   height: 31px;
 }
 
+/* Overwrite select bar width */
+.jss31 {
+  width: 90vw;
+}
+
+.jss161 {
+  font-size: .8rem;
+}
+
 .nav-flex {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   background-color: white;
   border-bottom: 3px solid rgb(34, 115, 236);
@@ -168,10 +178,27 @@ li {
   margin: 1.33em 0;
 }
 
+.nav-flex div a img {
+  max-width: 75px;
+}
+
 .footer-top {
-  margin-top: 3em;
+  margin-top: 2em;
   padding: 1.5em;
   background-color: rgb(34, 115, 236);
+}
+
+.languages {
+  padding: 0.5em 0;
+  background-color: rgb(34, 115, 236);
+  border-top: 3px solid black;
+}
+
+.lang {
+  text-decoration: none;
+  font-size: .9em;
+  padding: 0.5em;
+  color: black;
 }
 
 .footer-link {
@@ -188,7 +215,7 @@ li {
 
 .footer-bottom div a {
   text-decoration: none;
-  padding: 1em;
+  padding: .75em;
   color: white;
 }
 
@@ -198,3 +225,21 @@ li {
   margin-bottom: 0;
 }
 
+.button {
+  min-width: 225px;
+  text-align: center;
+  height: 2em;
+  font-size: 1.25em;
+  color: white;
+  background-color: orange;
+  border-radius: 2em;
+  border: none;
+}
+
+.home {
+  margin-bottom: 5em;
+}
+
+.have-card {
+  margin-bottom: 3em;
+}

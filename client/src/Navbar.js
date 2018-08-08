@@ -5,6 +5,8 @@ import {withRouter} from 'react-router-dom';
 import { updateUser} from './actions/index';
 import { connect } from 'react-redux';
 import store from './store';
+import logo from './OrcaLogo.png';
+import NavMenu from './NavMenu';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -23,8 +25,6 @@ const mapStateToProps = state => {
 class Navbar extends Component {
 
   handleLogout = () => {
-    // this.props.logout()
-
     // remove token from local storage
     localStorage.removeItem('mernToken');
     // remove info from the store
@@ -32,22 +32,12 @@ class Navbar extends Component {
   }
 
   render() {
-    console.log("this.props.user.first = ", this.props.user.first)
     return (
       <div className="nav-flex">
         <div>
-          <a href="/"><h4>ORCA</h4></a>
+          <a href="/"><img src={logo}/></a>
         </div>
-        <div>
-          {this.props.user.first ? (
-            <div>
-              <Link to="/profile">Profile</Link>
-              <Link to="/" onClick={this.handleLogout}>Logout</Link>
-            </div>
-          ) : (
-            <Link to="/login" onClick={this.handleClose}>Login</Link>
-          )}
-        </div>
+        <NavMenu user={this.props.user} logout={this.handleLogout}/>
       </div>
     );
   }
