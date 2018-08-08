@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import { UPDATE_USER } from '../constants/action_types';
 
 const initialState = {
-	token: '', 
+	token: '',
 	first: '',
 	last: '',
 	username: '',
@@ -26,7 +26,7 @@ const userReducer = (state = initialState, action) => {
 				return state
 			} else {
 				var objAss = Object.assign({}, state, {
-					token: action.userData.token, 
+					token: action.userData.token,
 					first: action.userData.user.first,
 					last: action.userData.user.last,
 					username: action.userData.user.username,
@@ -49,7 +49,7 @@ const userReducer = (state = initialState, action) => {
 }
 
 const rootReducer = combineReducers({
-  userReducer,
+  user: userReducer,
 })
 
 export default rootReducer

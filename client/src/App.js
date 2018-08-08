@@ -22,9 +22,9 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStatetoProps = state => {
-  console.log('mapping state: ', state.userReducer)
+  console.log('mapping state: ', state.user)
   return {
-    user: state.userReducer
+    user: state.user
   }
 }
 
@@ -98,7 +98,7 @@ class App extends Component {
           <Navbar user={this.props.user} logout={this.logout}/>
           <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
-          <Route exact path="/profile" component = {() => <ProfileContainer/>} />
+          <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} />} />
           <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
           <Footer className="footer"/>
         </div>

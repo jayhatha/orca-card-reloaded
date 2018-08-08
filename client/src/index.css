@@ -4,6 +4,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+li {
+  list-style-type: none;
+}
+
 .inputField {
   width: 90vw;
 }
