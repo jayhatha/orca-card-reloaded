@@ -1,4 +1,5 @@
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -181,6 +182,13 @@ li {
 .nav-flex div a img {
   max-width: 75px;
 }
+
+/* .footer-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+} */
 
 .footer-top {
   margin-top: 2em;
