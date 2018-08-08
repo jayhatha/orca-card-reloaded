@@ -7,12 +7,14 @@ import { updateCard } from './actions/index';
 import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
-import Navbar from './Navbar';
+import Nav from './Navbar';
+import Home from './Home';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import store from './store';
+import { Provider } from 'react-redux';
 
 const mapDispatchToProps = {
   updateUser,
@@ -45,7 +47,7 @@ class App extends Component {
   logout() {
     // remove token from local storage
     localStorage.removeItem('mernToken');
-    // remove info from state
+    // remove info from the store
     this.props.updateUser(null);
   }
 
@@ -92,18 +94,20 @@ fetchCardData() {
   }
 
   render() {
-    console.log('props = ', this.props)
     return(
-      <Router>
-        <div className="App">
-          <Navbar user={this.props.user} logout={this.logout}/>
-          <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
-          <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
-          <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
-          <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
-          <Footer className="footer"/>
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Nav/>
+            <Route exact path="/" component= {() => <Home/>} />
+            <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
+            <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
+            <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
+            <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
+            <Footer className="footer"/>
+          </div>
+        </Router>
+      </Provider>
     )
   }
 }

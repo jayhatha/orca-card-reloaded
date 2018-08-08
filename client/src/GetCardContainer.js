@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import RetailLocation from './RetailLocation';
 import Button from '@material-ui/core/Button';
 import ReactMapboxGl, {Marker} from "react-mapbox-gl";
@@ -16,11 +17,6 @@ class GetCardContainer extends Component {
     const Map = ReactMapboxGl({
       accessToken: process.env.REACT_APP_MAPBOX
     })
-
-    const location = {
-      name: "QFC",
-      address: "123 Mercer St., Seattle WA 98109"
-    }
 
     const retailList = locations.map(location => {
       return(<RetailLocation location={location}/>)
@@ -40,7 +36,7 @@ class GetCardContainer extends Component {
       <div>
         <div>
           <h4>Get a card online</h4>
-          <Button variant="contained" color="primary">Sign up</Button>
+          <Button id="button" component={Link} to="/signup" className="button">SIGN UP</Button>
         </div>
         <div>
           <h4>Get a card at a retail location</h4>
@@ -49,14 +45,14 @@ class GetCardContainer extends Component {
           <Map
             style="mapbox://styles/scottammon/cjjfwon001qvd2rthricow465"
             center={[-122.334020, 47.609676]}
-            zoom={[11]}
+            zoom={[9]}
             containerStyle={{
               height: "30vh"
             }}>
             {markerArray}
           </Map>
         </div>
-        <div>
+        <div class="retail-container">
           {retailList}
         </div>
       </div>

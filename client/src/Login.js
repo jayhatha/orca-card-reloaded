@@ -29,7 +29,7 @@ const Login = props => {
           margin="normal"
           required
         /><br />
-        <Button id="login-btn" variant="contained" color="primary" type="submit" value="Log In">Log In</Button>
+        <Button id="button" type="submit" value="Log In">LOG IN</Button>
       </form>
       <div id="login-link">
         <Link to={"/signup"}>Not a member? Sign up here.</Link>

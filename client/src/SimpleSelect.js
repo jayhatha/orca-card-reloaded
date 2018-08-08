@@ -39,6 +39,7 @@ class SimpleSelect extends React.Component {
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="secret">Secret Question</InputLabel>
           <Select
+            id="select-bar"
             value={this.state.secret}
             onChange={this.handleChange}
             inputProps={{
