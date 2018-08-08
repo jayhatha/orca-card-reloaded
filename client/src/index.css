@@ -156,7 +156,7 @@ li {
 }
 
 /* Overwrite select bar width */
-.jss31 {
+#select-bar {
   width: 90vw;
 }
 
@@ -273,3 +273,32 @@ li {
 .retail-location span {
   font-size: 0.8em;
 }
+
+.signup-section {
+  margin-bottom: 4em;
+}
+
+.signup-section h3 {
+  min-width: 50vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: .25em;
+  background-color: rgb(34, 115, 236);
+  border-radius: .5em;
+  color: white;
+  text-align: left;
+}
+
+.signup-section p {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.fade-title {
+  color: gray;
+}
+
+#dob {
+  margin-top: 0;
+}
+
