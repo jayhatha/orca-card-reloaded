@@ -30,24 +30,61 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   text-align: center;
   background-color: rgb(34, 115, 236);
-  width: 90%;
-  border-radius: 0.9rem;
-  margin: 0 auto;
+  padding-bottom: 5px;
+  width: 473px;
+  height: 240px;
+  max-width: 100%;
+  border-radius: 0.6rem;
+  margin: 20px auto;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 @media screen and (min-width: 768px) {
   .card-container {
-    width: 40%;
+    width: 564px;
+    height: 270px;
+    margin-bottom: 30px;
+  }
+
+  .card-serial {
+    padding-left: 1rem;
+    text-align: left;
+    position: relative;
+    bottom: 0;
+    left: 0;
+  }
+
+  .card-passes {
+    text-align: right;
+    padding-right: 1rem;
+    position: relative;
+    bottom: 0;
+    right: 0;
+  }
+
+  .card-balance h1 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-passes,
+  .card-serial {
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .card-buttons {
+    text-align: center;
+    margin: 10px auto 0;
   }
 }
 
 .card-nickname h2 {
-  font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   color: black;
+  margin: 0;
 }
 
 .card-balance,
@@ -65,36 +102,42 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-.card-top {}
-
 .card-balance h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-top: 0;
+  margin-bottom: 40px;
 }
 
 .card-bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin: 20px;
+  padding: 0;
 }
 
 .card-serial {
-  padding-left: 1rem;
   text-align: left;
+  position: relative;
+  bottom: 30px;
+  left: -20px;
 }
 
 .card-passes {
   text-align: right;
-  padding-right: 1rem;
+  position: relative;
+  bottom: 30px;
+  right: -10px;
 }
 
 .card-passes,
 .card-serial {
   font-size: 1rem;
-  display: flex;
+  display: inline-block;
 }
 
-.card-buttons {}
+.card-buttons {
+  text-align: center;
+  margin: 20px auto 0;
+  padding-top: 5px;
+}
 
 .map-wrapper {
   width: 90vw;
