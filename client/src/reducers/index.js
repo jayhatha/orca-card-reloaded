@@ -1,28 +1,42 @@
 import {combineReducers} from 'redux';
 import { UPDATE_USER } from '../constants/action_types';
+import { UPDATE_CARD } from '../constants/action_types';
+
 
 const initialState = {
-	token: '',
-	id: '',
-	first: '',
-	last: '',
-	username: '',
-	email: '',
-	phone: '',
-	dob: '',
-	street: '',
-	city: '',
-	state: '',
-	zip: '',
-	question: '',
-	answer: '',
-	password: ''
-};
+	user : {
+		token: '',
+		id: '',
+		first: '',
+		last: '',
+		username: '',
+		email: '',
+		phone: '',
+		dob: '',
+		street: '',
+		city: '',
+		state: '',
+		zip: '',
+		question: '',
+		answer: '',
+		password: '' },
+	card : {
+		id: '',
+		userId: '',
+		balance: '',
+		pass: '',
+		auto_reload: '',
+		cvv: '',
+		nickname: '',
+		passenger_type: '',
+		isactive: ''
+}
+}
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = initialState.user, action) => {
 	switch(action.type) {
 		case UPDATE_USER:
-			console.log('received the test action, here is the user: ' + action.userData)
+			console.log('received the test action, here is the user: ' , action.userData)
 			if (!action.userData) {
 				return state
 			} else {
@@ -50,8 +64,34 @@ const userReducer = (state = initialState, action) => {
 	}
 }
 
+const cardReducer = (state = initialState.card, action) => {
+	switch(action.type) {
+		case UPDATE_CARD:
+			console.log('received the test action, here is the card: ' , action.card)
+			if (!action.card) {
+				return state
+			} else {
+				var newCard = Object.assign({}, state, {
+					id: action.card.id,
+					userId: action.card.card.userId,
+					balance: action.card.card.balance,
+					pass: action.card.card.pass,
+					auto_reload: action.card.card.auto_reload,
+					cvv: action.card.card.cvv,
+					nickname: action.card.card.nickname,
+					passenger_type: action.card.card.passenger_type,
+					isactive: action.card.card.isactive
+				})
+				return newCard
+			}
+		default:
+			return state
+	}
+}
+
 const rootReducer = combineReducers({
   user: userReducer,
+  card: cardReducer
 })
 
 export default rootReducer

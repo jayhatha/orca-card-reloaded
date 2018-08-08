@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateUser} from './actions/index';
+import { updateUser } from './actions/index';
+import { updateCard } from './actions/index';
 import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
@@ -13,18 +14,16 @@ import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import store from './store';
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateUser: (userData) => {
-      dispatch(updateUser(userData))
-    }
-  }
+const mapDispatchToProps = {
+  updateUser,
+  updateCard
 }
 
 const mapStatetoProps = state => {
-  console.log('mapping state: ', state.user)
+  console.log('mapping state: ', state.user, state.card)
   return {
-    user: state.user
+    user: state.user,
+    card: state.card
   }
 }
 
@@ -34,6 +33,7 @@ class App extends Component {
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
     this.logout = this.logout.bind(this);
     this.liftTokenToState = this.liftTokenToState.bind(this);
+    this.fetchCardData = this.fetchCardData.bind(this);
   }
 
   liftTokenToState(data) {
@@ -67,6 +67,8 @@ class App extends Component {
         localStorage.setItem('mernToken', results.data.token);
         this.props.updateUser(results.data);
         this.fetchCardData();
+        console.log("Store is: ")
+        console.log(store.getState())
         }).catch( err => console.log(err))
 
     }
@@ -74,12 +76,11 @@ class App extends Component {
 
 
 fetchCardData() {
-  console.log('but the id is ', this.props.user.id, '!!!!!')
     axios.post('/user/cards', {
     id: this.props.user.id
   })
-  .then(function (response) {
-    console.log(response);
+  .then( response => {
+    this.props.updateCard(response.data);
   })
   .catch(function (error) {
     console.log(error);
@@ -98,7 +99,7 @@ fetchCardData() {
           <Navbar user={this.props.user} logout={this.logout}/>
           <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
-          <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} />} />
+          <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
           <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
           <Footer className="footer"/>
         </div>

@@ -5,15 +5,15 @@ const Cards = props => {
     <div>
       <h1>Your Cards</h1>
       <div className='card-container'>
-        <div className='card-nickname'><h3>Scott's Card</h3></div>
+        <div className='card-nickname'><h3>{props.card.nickname}</h3></div>
         <div className='card-top'>
           <h2>BALANCE</h2>
         </div>
         <div className='card-balance'>
-          <h1>$50</h1>
+          <h1>{props.card.balance}</h1>
         </div>
         <div>
-        <span className='card-serial'>0111001</span>
+        <span className='card-serial'>{props.card.id}</span>
         <span className='card-passes'>
           PUGETPASS SEP18 $2.75
         </span>

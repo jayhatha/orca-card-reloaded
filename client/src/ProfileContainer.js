@@ -21,9 +21,9 @@ class ProfileContainer extends Component {
     render() {
         return (
           <div>
-          <ProfileInfo user={this.props.user}/>
-          <Cards user={this.props.user}/>
-          <Activity user={this.props.user}/>
+          <ProfileInfo user={this.props.user} card={this.props.card}/>
+          <Cards user={this.props.user} card={this.props.card}/>
+          <Activity user={this.props.user} card={this.props.card}/>
           </div>
         );
     }
