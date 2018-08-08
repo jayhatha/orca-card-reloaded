@@ -66,16 +66,17 @@ class App extends Component {
         // put the token in local storage
         localStorage.setItem('mernToken', results.data.token);
         this.props.updateUser(results.data);
+        this.fetchCardData();
         }).catch( err => console.log(err))
+
     }
   }
 
 
-  fetchUserData() {
-    axios.get('/user/data', {
-    params: {
-      email: this.props.user.email
-    }
+fetchCardData() {
+  console.log('but the id is ', this.props.user.id, '!!!!!')
+    axios.post('/user/cards', {
+    id: this.props.user.id
   })
   .then(function (response) {
     console.log(response);
@@ -87,7 +88,6 @@ class App extends Component {
 
   componentDidMount() {
     this.checkForLocalToken();
-
   }
 
   render() {

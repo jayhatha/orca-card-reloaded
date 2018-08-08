@@ -3,6 +3,7 @@ const express = require('express');
 const bp = require('body-parser');
 const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
+const user = require('./routes/user');
 const locked = require('./routes/locked');
 
 const port = process.env.port || 3001;
@@ -14,6 +15,7 @@ app.use(bp.urlencoded({ extended: false }));
 
 app.use(express.static(`${__dirname}/client/build`));
 app.use('/auth', auth);
+app.use('/user', user);
 app.use('/locked', expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }), locked);
 
 app.get('*', (req, res) => {

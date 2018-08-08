@@ -3,6 +3,7 @@ import { UPDATE_USER } from '../constants/action_types';
 
 const initialState = {
 	token: '',
+	id: '',
 	first: '',
 	last: '',
 	username: '',
@@ -25,8 +26,9 @@ const userReducer = (state = initialState, action) => {
 			if (!action.userData) {
 				return state
 			} else {
-				var objAss = Object.assign({}, state, {
+				var newObj = Object.assign({}, state, {
 					token: action.userData.token,
+					id: action.userData.user.id,
 					first: action.userData.user.first,
 					last: action.userData.user.last,
 					username: action.userData.user.username,
@@ -41,7 +43,7 @@ const userReducer = (state = initialState, action) => {
 					answer: action.userData.user.answer,
 					password: action.userData.user.password
 				})
-				return objAss
+				return newObj
 			}
 		default:
 			return state

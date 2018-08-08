@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   card.associate = function (models) {
     models.card.belongsTo(models.user);
+    models.card.hasMany(models.activity);
   };
   return card;
 };
