@@ -147,7 +147,7 @@ const Signup = props => {
             margin="normal"
             required
           /><br />
-          <Button variant="contained" color="primary" type="submit" value="Sign up">Sign up</Button>
+          <Button id="button" type="submit" value="Sign up">Sign up</Button>
         </form>
         <p className="alert-msg">{(props.response) ? props.response.message : ''}</p>
       </div>

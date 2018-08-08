@@ -11,11 +11,11 @@ class Home extends Component {
         <h3>Welcome to Orca!</h3>
         <div class="have-card">
           <h4>Have an Orca Card?</h4>
-          <button className="button">GO TO MY CARDS</button>
+          <Button id="button" component={Link} to="/login" className="button">GO TO MY CARDS</Button>
         </div>
         <div>
           <h4>Need a Card?</h4>
-          <button className="button">GET A CARD</button>
+          <Button id="button" component={Link} to="/getcard" className="button">GET A CARD</Button>
         </div>
       </div>
     );

@@ -233,7 +233,7 @@ li {
   margin-bottom: 0;
 }
 
-.button {
+#button {
   min-width: 225px;
   text-align: center;
   height: 2em;
@@ -250,4 +250,26 @@ li {
 
 .have-card {
   margin-bottom: 3em;
+}
+
+.retail-container {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.retail-location {
+  text-align: left;
+}
+
+.retail-location h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.retail-location p {
+  margin: 0;
+}
+
+.retail-location span {
+  font-size: 0.8em;
 }
