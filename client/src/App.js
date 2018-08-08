@@ -6,7 +6,7 @@ import { updateUser} from './actions/index';
 import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
-import MenuAppBar from './MenuAppBar';
+import Navbar from './Navbar';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
 import Footer from './Footer';
@@ -22,8 +22,9 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStatetoProps = state => {
+  console.log('mapping state: ', state.userReducer)
   return {
-    user: state.username
+    user: state.userReducer
   }
 }
 
@@ -94,7 +95,7 @@ class App extends Component {
     return(
       <Router>
         <div className="App">
-          <MenuAppBar user={this.props.user} logout={this.logout}/>
+          <Navbar user={this.props.user} logout={this.logout}/>
           <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
           <Route exact path="/profile" component = {() => <ProfileContainer/>} />
