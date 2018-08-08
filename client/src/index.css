@@ -1,4 +1,5 @@
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -153,3 +154,151 @@ li {
   width: 20px;
   height: 31px;
 }
+
+/* Overwrite select bar width */
+#select-bar {
+  width: 90vw;
+}
+
+.jss161 {
+  font-size: .8rem;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid rgb(34, 115, 236);
+}
+
+.nav-flex div a {
+  text-decoration: none;
+  color: rgb(34, 115, 236);
+  margin: 1.33em 0;
+}
+
+.nav-flex div a img {
+  max-width: 75px;
+}
+
+/* .footer-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+} */
+
+.footer-top {
+  margin-top: 2em;
+  padding: 1.5em;
+  background-color: rgb(34, 115, 236);
+}
+
+.languages {
+  padding: 0.5em 0;
+  background-color: rgb(34, 115, 236);
+  border-top: 3px solid black;
+}
+
+.lang {
+  text-decoration: none;
+  font-size: .9em;
+  padding: 0.5em;
+  color: black;
+}
+
+.footer-link {
+  text-decoration: none;
+  padding: 0.1em;
+  color: white;
+}
+
+.footer-bottom {
+  padding: 1em;
+  background-color: #222;
+  color: white;
+}
+
+.footer-bottom div a {
+  text-decoration: none;
+  padding: .75em;
+  color: white;
+}
+
+.rights-reserved p {
+  color: gray;
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+
+#button {
+  min-width: 225px;
+  text-align: center;
+  height: 2em;
+  font-size: 1.25em;
+  color: white;
+  background-color: orange;
+  border-radius: 2em;
+  border: none;
+}
+
+.home {
+  margin-bottom: 5em;
+}
+
+.have-card {
+  margin-bottom: 3em;
+}
+
+.retail-container {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.retail-location {
+  text-align: left;
+}
+
+.retail-location h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.retail-location p {
+  margin: 0;
+}
+
+.retail-location span {
+  font-size: 0.8em;
+}
+
+.signup-section {
+  margin-bottom: 4em;
+}
+
+.signup-section h3 {
+  min-width: 50vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: .25em;
+  background-color: rgb(34, 115, 236);
+  border-radius: .5em;
+  color: white;
+  text-align: left;
+}
+
+.signup-section p {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.fade-title {
+  color: gray;
+}
+
+#dob {
+  margin-top: 0;
+}
+
