@@ -11,10 +11,10 @@ const Footer = props => {
       </div>
       <div className="footer-bottom">
         <div>
-          <a className="" href="#">Terms of Use</a>
+          <a className="" href="#">Terms of Use</a>&nbsp;&nbsp;&nbsp;
           <a className="" href="#">Privacy Policy</a>
         </div>
-        <div>
+        <div className="rights-reserved">
           <p>2018 GA | All Rights Reserved</p>
         </div>
       </div>

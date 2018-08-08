@@ -153,3 +153,48 @@ li {
   width: 20px;
   height: 31px;
 }
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid rgb(34, 115, 236);
+}
+
+.nav-flex div a {
+  text-decoration: none;
+  color: rgb(34, 115, 236);
+  margin: 1.33em 0;
+}
+
+.footer-top {
+  margin-top: 3em;
+  padding: 1.5em;
+  background-color: rgb(34, 115, 236);
+}
+
+.footer-link {
+  text-decoration: none;
+  padding: 0.1em;
+  color: white;
+}
+
+.footer-bottom {
+  padding: 1em;
+  background-color: #222;
+  color: white;
+}
+
+.footer-bottom div a {
+  text-decoration: none;
+  padding: 1em;
+  color: white;
+}
+
+.rights-reserved p {
+  color: gray;
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+
