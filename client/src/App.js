@@ -107,7 +107,7 @@ fetchCardData() {
         <Router>
           <div className="App">
             <Nav/>
-            <Route exact path="/" component= {() => <Home/>} />
+            <Route exact path="/" component= {() => <Home user={this.props.user}/>} />
             <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
