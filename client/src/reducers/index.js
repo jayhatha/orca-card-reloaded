@@ -6,7 +6,7 @@ import { UPDATE_CARD } from '../constants/action_types';
 const initialState = {
 	user : {
 		token: '',
-		id: '',
+		id: null,
 		first: '',
 		last: '',
 		username: '',
