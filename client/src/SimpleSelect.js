@@ -35,7 +35,7 @@ class SimpleSelect extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.root} autoComplete="off">
+      <div className={classes.root} autoComplete="off">
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="secret">Secret Question</InputLabel>
           <Select
@@ -55,7 +55,7 @@ class SimpleSelect extends React.Component {
             <MenuItem value={"What was the last name of your third grade teacher?"}>What was the last name of your third grade teacher?</MenuItem>
           </Select>
         </FormControl>
-      </form>
+      </div>
     );
   }
 }

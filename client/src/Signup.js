@@ -11,7 +11,7 @@ const Signup = props => {
         <div className="signup-header">
           <h4>Sign up now to get all the benefits of Orca!</h4>
         </div>
-        <form onSubmit={props.handleSubmit}>
+        <form id="signupForm" onSubmit={props.handleSubmit}>
           <div className="signup-section">
             <h3>Cardholder Details</h3>
             <TextField
@@ -122,8 +122,14 @@ const Signup = props => {
           </div>
           <div className="signup-section">
             <h3>My ORCA Login Details</h3>
-            <p className="fade-title">Choose a secret question:</p>
-            <SimpleSelect></SimpleSelect><br />
+        <label>
+         Choose a secret question:
+         <select form="signupForm" name="question" id="question" value={props.question} onChange={props.handleInputChange}>
+           <option value="What street did you live on in second grade?">What street did you live on in second grade?</option>
+           <option value="In what city did you meet your spouse/significant other?">In what city did you meet your spouse/significant other?</option>
+           <option value="What was the last name of your third grade teacher?">What was the last name of your third grade teacher?</option>
+         </select>
+         </label>
             <TextField
               id="answer"
               name="answer"

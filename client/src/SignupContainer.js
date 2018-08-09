@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Signup from './Signup';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 class SignupContainer extends Component {
   constructor(props){
@@ -47,7 +48,7 @@ class SignupContainer extends Component {
       state: this.state.state,
       zip: this.state.zip,
       password: this.state.password,
-      question: this.state.secret,
+      question: this.state.question,
       answer: this.state.answer
     }).then( result => {
       localStorage.setItem('mernToken', result.data.token)
@@ -65,4 +66,4 @@ class SignupContainer extends Component {
   }
 }
 
-export default SignupContainer;
+export default withRouter(SignupContainer);
