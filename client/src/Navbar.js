@@ -34,7 +34,7 @@ class Navbar extends Component {
     return (
       <div className="nav-flex">
         <div>
-          <a href="/"><img src={logo}/></a>
+          <Link to="/"><img src={logo}/></Link>
         </div>
         <NavMenu user={this.props.user} logout={this.handleLogout}/>
       </div>
