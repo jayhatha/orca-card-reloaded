@@ -23,15 +23,22 @@ const styles = theme => ({
 });
 
 class PassSelect extends React.Component {
-  state = {
-    pass: ''
-  };
+
+  constructor(props){
+      super(props)
+      this.state = {
+        pass: ''
+      };
+      this.getMonth = this.getMonth.bind(this);
+    }
+
+
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  function getMonth() {
+  getMonth() {
     var d = new Date();
     var month = new Array();
     month[0] = "JAN";
@@ -57,7 +64,7 @@ class PassSelect extends React.Component {
     return (
       <form className={classes.root} autoComplete="off">
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="secret">Secret Question</InputLabel>
+          <InputLabel htmlFor="pass">Select Pass</InputLabel>
           <Select
             id="select-bar"
             value={this.state.pass}
@@ -71,12 +78,12 @@ class PassSelect extends React.Component {
               <em>None</em>
             </MenuItem>
             <MenuItem value={'All-Day PugetPass $3.50'}>All-Day PugetPass $3.50 ($8.00)</MenuItem>
-            <MenuItem value={'PugetPass ' + {this.getMonth()} + ' $2.75'}>PugetPass $2.75 ($99.00)</MenuItem>
-            <MenuItem value={'PugetPass ' + {this.getMonth()} + ' $3.25'}>PugetPass $3.25 ($117.00)</MenuItem>
-            <MenuItem value={'PugetPass ' + {this.getMonth()} + ' $4.50'}>PugetPass $4.50 ($162.00)</MenuItem>
-            <MenuItem value={'PugetPass ' + {this.getMonth()} + ' $5.25'}>PugetPass $5.25 ($189.00)</MenuItem>
-            <MenuItem value={'PugetPass ' + {this.getMonth()} + ' $10.00'}>PugetPass $10.00 ($360.00)</MenuItem>
-            <MenuItem value={'WSF Vashon Island Ferry ' + {this.getMonth()}}>WSF Vashon Island Ferry $10.00 ($360.00)</MenuItem>
+            <MenuItem value={'PugetPass ' + this.getMonth() + ' $2.75'}>PugetPass $2.75 ($99.00)</MenuItem>
+            <MenuItem value={'PugetPass ' + this.getMonth() + ' $3.25'}>PugetPass $3.25 ($117.00)</MenuItem>
+            <MenuItem value={'PugetPass ' + this.getMonth() + ' $4.50'}>PugetPass $4.50 ($162.00)</MenuItem>
+            <MenuItem value={'PugetPass ' + this.getMonth() + ' $5.25'}>PugetPass $5.25 ($189.00)</MenuItem>
+            <MenuItem value={'PugetPass ' + this.getMonth() + ' $10.00'}>PugetPass $10.00 ($360.00)</MenuItem>
+            <MenuItem value={'WSF Vashon Island Ferry ' + this.getMonth()}>WSF Vashon Island Ferry $10.00 ($360.00)</MenuItem>
           </Select>
         </FormControl>
       </form>

@@ -11,6 +11,7 @@ import Home from './Home';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
 import CardBalanceContainer from './CardBalanceContainer';
+import CardPassContainer from './CardPassContainer';
 
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";

@@ -18,7 +18,9 @@ const Cards = props => {
           PUGETPASS SEP18 $2.75
         </span>
         <span className='card-passes'>
-          AUTO-RELOAD $25
+          {props.card.auto_reload ?
+          (<p>AUTO-RELOAD {props.card.auto_reload}</p>) : ('')
+          }
         </span>
       </div>
 
