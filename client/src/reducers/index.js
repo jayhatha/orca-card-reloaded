@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux';
-import { UPDATE_USER } from '../constants/action_types';
-import { UPDATE_CARD } from '../constants/action_types';
+import { UPDATE_USER, UPDATE_CARD, RESET_USER } from '../constants/action_types';
 
 
 const initialState = {
@@ -83,6 +82,36 @@ const cardReducer = (state = initialState.card, action) => {
 					isactive: action.card.card.isactive
 				})
 				return newCard
+			}
+		default:
+			return state
+	}
+}
+
+const resetUser = (state = initialState.user, action) => {
+	switch(action.type) {
+		case RESET_USER:
+			console.log('received the test action, here is the user: ' , action.userData)
+			if (action.userData) {
+				return state
+			} else {
+				return Object.assign({}, state, {
+					token: '',
+					id: null,
+					first: '',
+					last: '',
+					username: '',
+					email: '',
+					phone: '',
+					dob: '',
+					street: '',
+					city: '',
+					state: '',
+					zip: '',
+					question: '',
+					answer: '',
+					password: ''
+				})
 			}
 		default:
 			return state

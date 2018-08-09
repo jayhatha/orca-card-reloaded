@@ -2,18 +2,16 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import {withRouter} from 'react-router-dom';
-import { updateUser} from './actions/index';
+import { updateUser, updateCard, resetUser} from './actions/index';
 import { connect } from 'react-redux';
 import store from './store';
 import logo from './OrcaLogo.png';
 import NavMenu from './NavMenu';
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateUser: (userData) => {
-      dispatch(updateUser(userData))
-    }
-  }
+const mapDispatchToProps = {
+  updateUser,
+  updateCard,
+  resetUser
 }
 
 const mapStateToProps = state => {
@@ -28,7 +26,8 @@ class Navbar extends Component {
     // remove token from local storage
     localStorage.removeItem('mernToken');
     // remove info from the store
-    this.props.updateUser(null);
+    this.props.resetUser(null);
+    this.props.history.push('/')
   }
 
   render() {
@@ -48,4 +47,4 @@ const Nav = connect(
   mapDispatchToProps
 )(Navbar)
 
-export default Nav
+export default withRouter(Nav)
