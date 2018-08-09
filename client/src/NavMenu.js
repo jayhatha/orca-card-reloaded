@@ -26,7 +26,7 @@ class NavMenu extends React.Component {
 
   render() {
     const { anchorEl } = this.state;
-
+    console.log(this.props.user.first)
     return (
       <div>
         <Button
@@ -57,4 +57,3 @@ class NavMenu extends React.Component {
 }
 
 export default NavMenu;
-

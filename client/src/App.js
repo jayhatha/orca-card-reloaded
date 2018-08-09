@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateUser } from './actions/index';
-import { updateCard } from './actions/index';
+import { updateUser, updateCard, resetUser } from './actions/index';
 import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
@@ -14,11 +13,11 @@ import GetCardContainer from './GetCardContainer';
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import store from './store';
-import { Provider } from 'react-redux';
 
 const mapDispatchToProps = {
   updateUser,
-  updateCard
+  updateCard,
+  resetUser
 }
 
 const mapStatetoProps = state => {
@@ -40,6 +39,7 @@ class App extends Component {
 
   liftTokenToState(data) {
     this.props.updateUser(data);
+    this.fetchCardData();
     console.log("Store is: ")
     console.log(store.getState())
   }
@@ -48,7 +48,7 @@ class App extends Component {
     // remove token from local storage
     localStorage.removeItem('mernToken');
     // remove info from the store
-    this.props.updateUser(null);
+    this.props.resetUser(null);
   }
 
   checkForLocalToken() {
@@ -58,7 +58,7 @@ class App extends Component {
       // There was no token
       // remove mernToken from local storage just in case corrupted, replaced etc
       localStorage.removeItem('mernToken')
-      this.props.updateUser(null);
+      this.props.resetUser();
     } else {
       // token found in local storage
       // send it to the back to be verified

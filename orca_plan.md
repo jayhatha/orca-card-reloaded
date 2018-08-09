@@ -66,9 +66,8 @@ Card Model:
 Activity Model:
   CardId
   Date/Time
-  Item
+  Route
   Amount
-  balance
 
 
 
