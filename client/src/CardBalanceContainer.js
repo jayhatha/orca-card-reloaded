@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import CardAddValue from './CardAddValue';
 import axios from 'axios';
 import store from './store';
-import { updateCard} from './actions/index';
+import { updateCard, updateBalance} from './actions/index';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 const mapDispatchToProps = {
-  updateCard
+  updateCard,
+  updateBalance
 }
 
 const mapStatetoProps = state => {
@@ -19,12 +21,32 @@ const mapStatetoProps = state => {
 class CardBalanceContainer extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      inputBalance: 0
+    }
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitValue = this.handleSubmitValue.bind(this)
     this.handleSubmitAutoReload = this.handleSubmitAutoReload.bind(this)
   }
 
-  handleSubmitValue() {
+  handleInputChange = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value
+    });
+  }
 
+  handleSubmitValue = e => {
+    e.preventDefault();
+    var newBalance = parseInt(this.props.card.balance) + parseInt(this.state.inputBalance);
+    axios.post('/card/addvalue', {
+      id: this.props.card.id,
+      balance: newBalance 
+    }).then( result => {
+      this.props.updateBalance(newBalance)
+      this.props.history.push("/profile");
+    })
   }
 
   handleSubmitAutoReload() {
@@ -34,10 +56,15 @@ class CardBalanceContainer extends Component {
   render() {
     return (
       <div>
-        <CardAddValue user={this.props.user} card={this.props.card}/>
+        <CardAddValue user={this.props.user} 
+                      card={this.props.card} 
+                      inputBalance={this.state.inputBalance}
+                      handleInputChange={this.handleInputChange}
+                      handleSubmitValue={this.handleSubmitValue}
+                      handleSubmitAutoReload={this.handleSubmitAutoReload}/>
       </div>
     )
   }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps)(CardBalanceContainer)
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(CardBalanceContainer))
