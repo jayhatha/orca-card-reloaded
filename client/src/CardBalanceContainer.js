@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import CardAddValue from './CardAddValue';
+import CardAutoReload from './CardAutoReload';
 import axios from 'axios';
 import store from './store';
-import { updateCard, updateBalance} from './actions/index';
+import { updateCard, updateBalance, updateAutoReload} from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 const mapDispatchToProps = {
-  updateCard,
-  updateBalance
+  updateBalance,
+  updateAutoReload
 }
 
 const mapStatetoProps = state => {
@@ -22,7 +23,8 @@ class CardBalanceContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      inputBalance: 0
+      inputBalance: 5,
+      reloadValue: 0
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitValue = this.handleSubmitValue.bind(this)
@@ -49,8 +51,16 @@ class CardBalanceContainer extends Component {
     })
   }
 
-  handleSubmitAutoReload() {
-
+  handleSubmitAutoReload = e => {
+    e.preventDefault();
+    var newReload = parseInt(this.state.reloadValue)
+    axios.post('/card/auto_reload', {
+      id: this.props.card.id,
+      auto_reload: newReload
+    }).then( result => {
+      this.props.updateAutoReload(newReload)
+      this.props.history.push("/profile");
+    })
   }
 
   render() {
@@ -61,7 +71,13 @@ class CardBalanceContainer extends Component {
                       inputBalance={this.state.inputBalance}
                       handleInputChange={this.handleInputChange}
                       handleSubmitValue={this.handleSubmitValue}
-                      handleSubmitAutoReload={this.handleSubmitAutoReload}/>
+                      />
+        <CardAutoReload user={this.props.user} 
+                        card={this.props.card} 
+                        reloadValue={this.state.reloadValue}
+                        handleInputChange={this.handleInputChange}
+                        handleSubmitAutoReload={this.handleSubmitAutoReload}
+                        />
       </div>
     )
   }

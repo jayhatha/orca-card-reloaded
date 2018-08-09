@@ -20,7 +20,7 @@ const CardAddValue = props => {
             required
           />
           <p>You can add a minimum of $5, and a maximum of $300.</p>
-        <button id="button" type="submit">Add Value</button>
+          <button id="button" type="submit">Add Value</button>
         </form>
       </div>
     )

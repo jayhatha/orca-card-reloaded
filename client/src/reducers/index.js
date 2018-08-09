@@ -3,7 +3,8 @@ import {
   UPDATE_USER,
   UPDATE_CARD,
   RESET_USER,
-  UPDATE_BALANCE
+  UPDATE_BALANCE,
+  UPDATE_AUTO_RELOAD
 } from "../constants/action_types";
 
 const initialState = {
@@ -111,11 +112,19 @@ const cardReducer = (state = initialState.card, action) => {
       if (!action.balance) {
         return state;
       } else {
-        console.log("Update balance action.balance = ", action.balance)
         var newBalance = Object.assign({}, state, {
           balance: action.balance
         });
         return newBalance;
+      }
+    case UPDATE_AUTO_RELOAD:
+      if (!action.reload) {
+        return state;
+      } else {
+        var newReload = Object.assign({}, state, {
+          auto_reload: action.reload
+        });
+        return newReload;
       }
     default:
       return state;
