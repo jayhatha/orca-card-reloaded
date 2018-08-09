@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import {Helmet} from 'react-helmet';
 import axios from 'axios';
 import { connect, Provider } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
 import './App.css';
 import LoginContainer from './LoginContainer';
@@ -95,6 +95,11 @@ fetchCardData() {
 
   render() {
     return(
+      <div>
+      <Helmet>
+            <meta charSet="utf-8" />
+            <title>ORCA | One Pass for Puget Sound Buses, Trains, and Ferries</title>
+      </Helmet>
       <Provider store={store}>
         <Router>
           <div className="App">
@@ -108,6 +113,7 @@ fetchCardData() {
           </div>
         </Router>
       </Provider>
+    </div>
     )
   }
 }

@@ -94,7 +94,7 @@ const cardReducer = (state = initialState.card, action) => {
         return state;
       } else {
         var newCard = Object.assign({}, state, {
-          id: action.card.id,
+          id: action.card.card.id,
           userId: action.card.card.userId,
           balance: action.card.card.balance,
           pass: action.card.card.pass,
