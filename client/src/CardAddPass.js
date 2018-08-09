@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PassSelect from './PassSelect';
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -8,14 +7,46 @@ class CardAddPass extends Component {
     super(props)
   }
 
+  getMonth() {
+    var d = new Date();
+    var month = new Array();
+    month[0] = "JAN";
+    month[1] = "FEB";
+    month[2] = "MAR";
+    month[3] = "APR";
+    month[4] = "MAY";
+    month[5] = "JUN";
+    month[6] = "JUL";
+    month[7] = "AUG";
+    month[8] = "SEP";
+    month[9] = "OCT";
+    month[10] = "NOV";
+    month[11] = "DEC";
+    var n = month[d.getMonth()];
+    var y = d.getFullYear().toString().split('').splice(2, 2).join('')
+    return n + y
+  }
+
   render() {
     return (
       <div className="form-container">
        <h2>Add a Pass To Your Orca Card</h2>
        <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
+       <form id='passSelect' onSubmit={this.props.handleSubmit}>
+       <label>
        <h3>Pass to Add:</h3>
-       <form onSubmit={this.props.handleSubmit}>
-         <PassSelect></PassSelect><br />
+        <select form="passSelect" name="pass" id="pass" value={this.props.pass} onChange={this.props.handleInputChange}>
+            <option value='All-Day PugetPass $3.50'>All-Day PugetPass $3.50 ($8.00)</option>
+            <option value={"PugetPass " + this.getMonth() + " $2.75"}>PugetPass $2.75 ($99.00)</option>
+            <option value={"PugetPass " + this.getMonth() + " $3.25"}>PugetPass $3.25 ($117.00)</option>
+            <option value={"PugetPass " + this.getMonth() + " $4.50"}>PugetPass $4.50 ($162.00)</option>
+            <option value={"PugetPass " + this.getMonth() + " $5.25"}>PugetPass $5.25 ($189.00)</option>
+            <option value={"PugetPass " + this.getMonth() + " $10.00"}>PugetPass $10.00 ($360.00)</option>
+            <option value="'WSF Vashon Island Ferry ' + this.getMonth()">WSF Vashon Island Ferry $10.00 ($360.00)</option>
+        </select>
+        </label>
+        <br />
+        <button id="button" type="submit">Add Pass</button>
         </form>
       </div>
     )

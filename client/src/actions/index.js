@@ -1,4 +1,4 @@
-import {UPDATE_USER, UPDATE_CARD, RESET_USER, UPDATE_BALANCE, UPDATE_AUTO_RELOAD}  from "../constants/action_types";
+import {UPDATE_USER, UPDATE_CARD, RESET_USER, UPDATE_BALANCE, UPDATE_AUTO_RELOAD, UPDATE_PASS}  from "../constants/action_types";
 
 export const updateUser = (userData) => ({
   type: UPDATE_USER,
@@ -24,5 +24,7 @@ export const updateAutoReload = (reload) => ({
   reload
 })
 
-
-
+export const updatePass = (pass) => ({
+  type: UPDATE_PASS,
+  pass
+})

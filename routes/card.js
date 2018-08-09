@@ -23,4 +23,14 @@ router.post('/auto_reload', (req, res) => {
   });
 });
 
+// Adds a new pass to the user's card
+router.post('/addpass', (req, res) => {
+  db.card.update({
+    pass: req.body.pass
+    }, { where: { id: req.body.id }
+  }).then(function(card, err) {
+    res.sendStatus(200);
+  });
+});
+
 module.exports = router;

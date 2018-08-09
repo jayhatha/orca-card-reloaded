@@ -4,7 +4,8 @@ import {
   UPDATE_CARD,
   RESET_USER,
   UPDATE_BALANCE,
-  UPDATE_AUTO_RELOAD
+  UPDATE_AUTO_RELOAD,
+	UPDATE_PASS
 } from "../constants/action_types";
 
 const initialState = {
@@ -126,6 +127,15 @@ const cardReducer = (state = initialState.card, action) => {
         });
         return newReload;
       }
+		case UPDATE_PASS:
+	  if (!action.pass) {
+	    return state;
+	  } else {
+	    var newPass = Object.assign({}, state, {
+	      pass: action.pass
+	    });
+	    return newPass;
+	  }
     default:
       return state;
   }
