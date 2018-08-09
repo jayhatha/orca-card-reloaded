@@ -38,6 +38,26 @@ const initialState = {
 
 const userReducer = (state = initialState.user, action) => {
   switch (action.type) {
+		case RESET_USER:
+		console.log('called the resetUser reducer')
+		var blank = Object.assign({}, state, {
+			token: "",
+	    id: null,
+	    first: "",
+	    last: "",
+	    username: "",
+	    email: "",
+	    phone: "",
+	    dob: "",
+	    street: "",
+	    city: "",
+	    state: "",
+	    zip: "",
+	    question: "",
+	    answer: "",
+	    password: ""
+		});
+		return blank;
     case UPDATE_USER:
       if (!action.userData) {
         return state;
@@ -91,37 +111,9 @@ const cardReducer = (state = initialState.card, action) => {
   }
 };
 
-const resetUser = (state = initialState.user, action) => {
-  switch (action.type) {
-    case RESET_USER:
-		console.log('called the resetUser reducer')
-		var newObj = Object.assign({}, state, {
-			token: "",
-	    id: null,
-	    first: "",
-	    last: "",
-	    username: "",
-	    email: "",
-	    phone: "",
-	    dob: "",
-	    street: "",
-	    city: "",
-	    state: "",
-	    zip: "",
-	    question: "",
-	    answer: "",
-	    password: ""
-		});
-		return newObj;
-    default:
-      return state;
-  }
-};
-
 const rootReducer = combineReducers({
   user: userReducer,
-  card: cardReducer,
-  reset: resetUser
+  card: cardReducer
 });
 
 export default rootReducer;
