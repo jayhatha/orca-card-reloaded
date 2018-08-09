@@ -1,26 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
 
-const CardAutoReload = props => {
+class CardAutoReload extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      autoEnabled: false
+    }
+    this.enableAutoLoad = this.enableAutoLoad.bind(this)
+  }
+
+  enableAutoLoad() {
+    this.setState({
+      autoEnabled: true
+    })
+  }
+
+  render() {
     return (
-      <div className="form-container">
-        <h3>Current Auto Reload is: {props.card.auto_reload}</h3>
-        <h3>Change Auto Reload Amount:</h3>
-        <form onSubmit={props.handleSubmitAutoReload}>
-          <TextField
-              name="reloadValue"
-              type="number"
-              className="inputField"
-              value={props.reloadValue}
-              onChange={props.handleInputChange}
-              margin="normal"
-              required
-            />
-          <button id="button" type="submit">Enable Auto-Reload</button>
-        </form>
+      <div class="form-container">
+      {this.props.card.auto_reload || this.state.autoEnabled ? (
+        <div>
+          <h3>Auto Reload is Enabled</h3>
+          <h3>Current Amount: ${this.props.card.auto_reload}</h3>
+          <form onSubmit={this.props.handleSubmitAutoReload}>
+            <h3>New Amount:</h3>
+            <TextField
+                name="reloadValue"
+                type="number"
+                className="inputField"
+                value={this.props.reloadValue}
+                onChange={this.props.handleInputChange}
+                margin="normal"
+                required
+              />
+              <button type="submit" id="button">Update Auto Reload</button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <h3>Auto Reload is {this.props.card.auto_reload}</h3>
+          <button onClick={this.enableAutoLoad} id="button">Enable Auto-Reload</button>
+        </div>
+      )}
       </div>
     )
+  }
 }
 
 export default CardAutoReload
