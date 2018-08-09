@@ -187,7 +187,7 @@ li {
 
 .card-passes,
 .card-serial {
-  font-size: 0.5rem;
+  font-size: 1.2rem;
   display: inline-block;
 }
 
@@ -207,14 +207,13 @@ li {
   width: 20px;
   height: 31px;
 }
-
 /* Overwrite select bar width */
 #select-bar {
   width: 90vw;
 }
 
 .jss161 {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .nav-flex {
@@ -235,14 +234,12 @@ li {
 .nav-flex div a img {
   max-width: 75px;
 }
-
 /* .footer-container {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
 } */
-
 .footer-top {
   margin-top: 2em;
   padding: 1.5em;
@@ -257,7 +254,7 @@ li {
 
 .lang {
   text-decoration: none;
-  font-size: .9em;
+  font-size: 0.9em;
   padding: 0.5em;
   color: black;
 }
@@ -276,13 +273,13 @@ li {
 
 .footer-bottom div a {
   text-decoration: none;
-  padding: .75em;
+  padding: 0.75em;
   color: white;
 }
 
 .rights-reserved p {
   color: gray;
-  margin-top: .5em;
+  margin-top: 0.5em;
   margin-bottom: 0;
 }
 
@@ -335,9 +332,9 @@ li {
   min-width: 50vw;
   box-sizing: border-box;
   margin: 0;
-  padding: .25em;
+  padding: 0.25em;
   background-color: rgb(34, 115, 236);
-  border-radius: .5em;
+  border-radius: 0.5em;
   color: white;
   text-align: left;
 }
@@ -354,4 +351,3 @@ li {
 #dob {
   margin-top: 0;
 }
-
