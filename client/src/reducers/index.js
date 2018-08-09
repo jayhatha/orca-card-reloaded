@@ -2,7 +2,9 @@ import { combineReducers } from "redux";
 import {
   UPDATE_USER,
   UPDATE_CARD,
-  RESET_USER
+  RESET_USER,
+  UPDATE_BALANCE,
+  UPDATE_AUTO_RELOAD
 } from "../constants/action_types";
 
 const initialState = {
@@ -105,6 +107,24 @@ const cardReducer = (state = initialState.card, action) => {
           isactive: action.card.card.isactive
         });
         return newCard;
+      }
+    case UPDATE_BALANCE:
+      if (!action.balance) {
+        return state;
+      } else {
+        var newBalance = Object.assign({}, state, {
+          balance: action.balance
+        });
+        return newBalance;
+      }
+    case UPDATE_AUTO_RELOAD:
+      if (!action.reload) {
+        return state;
+      } else {
+        var newReload = Object.assign({}, state, {
+          auto_reload: action.reload
+        });
+        return newReload;
       }
     default:
       return state;

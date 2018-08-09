@@ -10,7 +10,8 @@ import Nav from './Navbar';
 import Home from './Home';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
-import CardPassContainer from './CardPassContainer'
+import CardBalanceContainer from './CardBalanceContainer';
+
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import store from './store';
@@ -110,7 +111,9 @@ fetchCardData() {
             <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
             <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
+
             <Route exact path="/addpass" component = {() => <CardPassContainer/>} />
+            <Route exact path="/reload" component = {() => <CardBalanceContainer/>} />
             <Footer className="footer"/>
           </div>
         </Router>
