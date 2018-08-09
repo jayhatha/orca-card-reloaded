@@ -10,7 +10,6 @@ export const updateCard = (card) => ({
   card
 })
 
-export const resetUser = (userData) => ({
-  type: RESET_USER,
-  userData
+export const resetUser = () => ({
+  type: RESET_USER
 })

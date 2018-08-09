@@ -26,7 +26,7 @@ class Navbar extends Component {
     // remove token from local storage
     localStorage.removeItem('mernToken');
     // remove info from the store
-    this.props.resetUser(null);
+    this.props.resetUser();
     this.props.history.push('/')
   }
 

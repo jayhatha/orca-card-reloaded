@@ -39,6 +39,7 @@ class App extends Component {
 
   liftTokenToState(data) {
     this.props.updateUser(data);
+    this.fetchCardData();
     console.log("Store is: ")
     console.log(store.getState())
   }
@@ -57,7 +58,7 @@ class App extends Component {
       // There was no token
       // remove mernToken from local storage just in case corrupted, replaced etc
       localStorage.removeItem('mernToken')
-      this.props.resetUser(null);
+      this.props.resetUser();
     } else {
       // token found in local storage
       // send it to the back to be verified
