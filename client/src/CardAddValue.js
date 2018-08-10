@@ -1,11 +1,10 @@
 import React from 'react';
+import PaymentWidget from './PaymentWidget';
 import TextField from '@material-ui/core/TextField';
-import { Link } from 'react-router-dom';
 
 const CardAddValue = props => {
     return (
       <div className="form-container">
-       <h2>Add Value To Your Orca Card</h2>
        <h3>{props.user.first}'s Card: {props.card.id}</h3>
        <h3>Current Balance: <span>${props.card.balance}</span></h3>
        <h3>Amount to Add:</h3>
@@ -20,6 +19,7 @@ const CardAddValue = props => {
             required
           />
           <p>You can add a minimum of $5, and a maximum of $300.</p>
+          <PaymentWidget/>
           <button id="button" type="submit">Add Value</button>
         </form>
       </div>

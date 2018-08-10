@@ -366,3 +366,8 @@ li {
 #dob {
   margin-top: 0;
 }
+
+/*  ======= PAYMENT WIDGET STYLES ======== */
+.payment-container {
+  text-align: left;
+}
