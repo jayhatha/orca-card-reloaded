@@ -45,6 +45,7 @@ class NavMenu extends React.Component {
         {this.props.user.first ? (
           <div>
             <MenuItem component={Link} to="/profile" onClick={this.handleClose}>Profile</MenuItem>
+            <MenuItem component={Link} to="/reload" onClick={this.handleClose}>Reload</MenuItem>
             <MenuItem onClick={this.handleLogoutAndClose}>Logout</MenuItem>
           </div>
           ) : (

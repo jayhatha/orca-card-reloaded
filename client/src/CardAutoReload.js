@@ -20,7 +20,7 @@ class CardAutoReload extends Component {
   render() {
     return (
       <div class="form-container">
-        <h3>Current Reload Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
+        <h3>Current Auto-Reload Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
         <form onSubmit={this.props.handleSubmitAutoReload}>
           <h3>New Amount:</h3>
           <TextField
@@ -33,7 +33,10 @@ class CardAutoReload extends Component {
               required
             />
             <PaymentWidget/>
-            <button type="submit" id="button">Update Auto Reload</button>
+            <button type="submit" id="button">Update Auto-Reload</button>
+        </form>
+        <form onSubmit={this.props.handleSubmitDisableReload}>
+          <button type="submit" id="button">Disable Auto-Reload</button>
         </form>
       </div>
     )
