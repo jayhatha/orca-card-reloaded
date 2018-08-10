@@ -1,0 +1,343 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; }
+
+li {
+  list-style-type: none;
+  text-align: center;
+  margin: 0, auto; }
+
+.inputField {
+  width: 90vw; }
+
+.form-container {
+  width: 90vw;
+  margin: 0 auto; }
+
+.form-container .btn {
+  text-align: right; }
+
+.alert-msg {
+  color: red;
+  text-align: center; }
+
+.footer-link {
+  display: block; }
+
+/* =^..^=   =^..^=   =^..^=  CARD STYLES  =^..^=    =^..^=    =^..^=    =^..^= */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #2273ec;
+  padding-bottom: 5px;
+  width: 90vw;
+  height: 240px;
+  max-width: 100%;
+  border-radius: 0.6rem;
+  margin: 20px auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+@media screen and (min-width: 768px) {
+  .card-container {
+    width: 567px;
+    height: 270px;
+    margin-bottom: 30px; }
+  .card-serial {
+    padding-left: 1rem;
+    text-align: left;
+    position: relative;
+    bottom: 0;
+    left: 0; }
+  .card-passes {
+    text-align: right;
+    padding-right: 1rem;
+    position: relative;
+    bottom: 0;
+    right: 0; }
+  .card-balance h1 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0; }
+  .card-passes,
+  .card-serial {
+    font-size: 1rem;
+    display: inline-block; }
+  .card-buttons {
+    text-align: center;
+    margin: 10px auto 0; } }
+
+/* === PHONE STYLES === */
+@media screen and (max-width: 320px) {
+  .card-container {
+    width: 90vw;
+    height: 130px;
+    margin-bottom: 5px; }
+  .card-serial {
+    padding-left: 0 rem;
+    text-align: left;
+    position: relative;
+    bottom: 0;
+    left: 0; }
+  .card-passes {
+    text-align: right;
+    padding-right: 0 rem;
+    position: relative;
+    bottom: 0;
+    right: 0; }
+  .card-balance {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0; }
+  .card-nickname h3 {
+    font-size: 0.5rem;
+    color: black;
+    margin: 0; }
+  .card-top {
+    font-size: 0.5rem; }
+  .card-passes,
+  .card-serial {
+    font-size: 0.5rem;
+    display: inline-block; }
+  .card-buttons {
+    text-align: center;
+    margin: 2px auto 0; } }
+
+/* === DEFAULT STYLES === */
+.card-nickname h3 {
+  font-size: 1.5rem;
+  color: black;
+  margin: 0; }
+
+.card-balance,
+.card-bottom,
+.card-top {
+  background-color: #2273ec; }
+
+.card-balance,
+.card-bottom,
+.card-passes,
+.card-serial,
+.card-top {
+  color: ghostwhite;
+  font-family: 'Nunito', sans-serif; }
+
+.card-balance h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 40px; }
+
+.card-bottom {
+  margin: 3px;
+  padding: 0; }
+
+.card-serial {
+  text-align: left;
+  position: relative;
+  bottom: 5px;
+  left: -20px; }
+
+.card-passes {
+  text-align: right;
+  position: relative;
+  bottom: 5px;
+  right: -10px; }
+
+.card-passes,
+.card-serial {
+  font-size: 1.2rem;
+  display: inline-block; }
+
+.card-buttons {
+  text-align: center;
+  margin: 10px auto 0;
+  padding-top: 5px; }
+
+.map-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  text-align: center; }
+
+#map-icon {
+  width: 20px;
+  height: 31px; }
+
+/* Overwrite select bar width */
+#select-bar {
+  width: 90vw; }
+
+.jss161 {
+  font-size: 0.8rem; }
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid #2273ec; }
+
+.nav-flex div a {
+  text-decoration: none;
+  color: #2273ec;
+  margin: 1.33em 0; }
+
+.nav-flex div a img {
+  max-width: 75px; }
+
+/* .footer-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+} */
+.footer-top {
+  margin-top: 2em;
+  padding: 1.5em;
+  background-color: #2273ec; }
+
+.languages {
+  padding: 0.5em 0;
+  background-color: #2273ec; }
+
+.languages a {
+  color: white; }
+
+.lang {
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 0.5em;
+  color: black; }
+
+.footer-link {
+  text-decoration: none;
+  padding: 0.1em;
+  color: white; }
+
+.footer-bottom {
+  padding: 1em;
+  background-color: #222;
+  color: white; }
+
+.footer-bottom div a {
+  text-decoration: none;
+  padding: 0.75em;
+  color: white; }
+
+.rights-reserved p {
+  color: gray;
+  margin-top: 0.5em;
+  margin-bottom: 0; }
+
+#button {
+  min-width: 225px;
+  text-align: center;
+  height: 2em;
+  font-size: 1.25em;
+  color: white;
+  background-color: orange;
+  border-radius: 2em;
+  border: none; }
+
+#map-button {
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  font-weight: bold;
+  color: #2273ec;
+  background-color: white; }
+
+.home {
+  margin-bottom: 5em; }
+
+.have-card {
+  margin-bottom: 3em; }
+
+.retail-container {
+  width: 90vw;
+  margin: 0 auto; }
+
+.retail-location {
+  text-align: left; }
+
+.retail-location h4 {
+  margin: 0;
+  font-weight: bold; }
+
+.retail-location p {
+  margin: 0;
+  font-size: 0.8em; }
+
+.retail-location span {
+  font-size: 0.8em; }
+
+.signup-section {
+  margin-bottom: 4em; }
+
+.signup-section h3 {
+  min-width: 50vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.25em;
+  background-color: #2273ec;
+  border-radius: 0.5em;
+  color: white;
+  text-align: left; }
+
+.signup-section p {
+  text-align: left;
+  margin-bottom: 0; }
+
+.fade-title {
+  color: gray; }
+
+#dob {
+  margin-top: 0; }
+
+/*  ======= PAYMENT WIDGET STYLES ======== */
+.payment-container {
+  text-align: left; }
+
+.payment-container h3 {
+  min-width: 50vw;
+  box-sizing: border-box;
+  margin-bottom: 1.5em;
+  padding: 0.25em;
+  background-color: #2273ec;
+  border-radius: 0.5em;
+  color: white; }
+
+.payment-container p {
+  margin-bottom: 0; }
+
+.small-input,
+.large-input,
+.cvv-input {
+  border: 1px solid black;
+  height: 2em; }
+
+.large-input {
+  width: 100%;
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em; }
+
+.small-input {
+  display: inline;
+  width: 5em;
+  margin-right: 1em; }
+
+.cvv-input {
+  display: block;
+  width: 5em; }
+
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2em; }
+
+/*# sourceMappingURL=app.css.map */

@@ -1,5 +1,3 @@
-@import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
-
 body {
   position: relative;
   margin: 0;
@@ -386,7 +384,7 @@ li {
   margin-bottom: 0;
 }
 
-.small-input, 
+.small-input,
 .large-input,
 .cvv-input {
   border: 1px solid black;
@@ -417,4 +415,3 @@ li {
   align-items: flex-end;
   margin-bottom: 2em;
 }
-
