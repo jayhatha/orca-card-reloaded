@@ -1,5 +1,9 @@
 @import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
 
+.App {
+  text-align: center;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -289,14 +293,26 @@ li {
 }
 
 #button {
-  min-width: 225px;
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: .88em;
+  width: 225px;
   text-align: center;
-  height: 2em;
-  font-size: 1.25em;
-  color: white;
+  height: 3em;
+  font-size: .8em;
+  color: #fff;
   background-color: orange;
   border-radius: 2em;
   border: none;
+  text-decoration: none;
+}
+
+#button:hover {
+  border: 3px solid orange;
+  background-color: transparent;
+  padding: .6em;
+  color: orange;
 }
 
 #map-button {

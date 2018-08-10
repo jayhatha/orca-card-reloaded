@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 const Cards = props => {
   return (
@@ -30,8 +29,8 @@ const Cards = props => {
 
       </div>
       <div className='card-buttons'>
-      <Button id="button" component={Link} to="/reload" className="button">Add value to card</Button>
-      <Button id="button" component={Link} to="/addpass" className="button">Add a pass</Button>
+      <Link id="button" to="/reload" className="button">Add value to card</Link>
+      <Link id="button" to="/addpass" className="button">Add a pass</Link>
       </div>
     </div>
   );
