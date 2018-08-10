@@ -25,6 +25,7 @@ class CardAutoReloadContainer extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitAutoReload = this.handleSubmitAutoReload.bind(this)
+    this.handleSubmitDisableReload = this.handleSubmitDisableReload.bind(this)
   }
 
   handleInputChange = e => {
@@ -47,6 +48,17 @@ class CardAutoReloadContainer extends Component {
     })
   }
 
+  handleSubmitDisableReload = e => {
+    e.preventDefault();
+    axios.post('/card/auto_reload', {
+      id: this.props.card.id,
+      auto_reload: null
+    }).then( result => {
+      this.props.updateAutoReload(null)
+      this.props.history.push("/profile");
+    })
+  }
+
   render() {
     return (
       <div>        
@@ -55,6 +67,7 @@ class CardAutoReloadContainer extends Component {
                         reloadValue={this.state.reloadValue}
                         handleInputChange={this.handleInputChange}
                         handleSubmitAutoReload={this.handleSubmitAutoReload}
+                        handleSubmitDisableReload={this.handleSubmitDisableReload}
                         />
       </div>
     )

@@ -119,14 +119,10 @@ const cardReducer = (state = initialState.card, action) => {
         return newBalance;
       }
     case UPDATE_AUTO_RELOAD:
-      if (!action.reload) {
-        return state;
-      } else {
-        var newReload = Object.assign({}, state, {
-          auto_reload: action.reload
-        });
-        return newReload;
-      }
+      var newReload = Object.assign({}, state, {
+        auto_reload: action.reload
+      });
+      return newReload;
 		case UPDATE_PASS:
 	  if (!action.pass) {
 	    return state;

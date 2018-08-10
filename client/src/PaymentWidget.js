@@ -5,60 +5,57 @@ const PaymentWidget = props => {
     return (
       <div className="payment-container">
         <h3>Payment Details</h3>
-        <form>
-          <label>Name as it appears on card</label>
-          <input
+          <label>
+            Full Name
+            <input
               name="name"
               type="text"
-              className="inputField"
+              className="large-input"
               margin="normal"
               required
             />
-            <TextField
+          </label>
+          <label>
+            Card Number
+            <input
               name="card-number"
-              label="Card Number"
               type="number"
-              className="inputField"
+              className="large-input"
               margin="normal"
               required
             />
-            <label>
+          </label>
+          <div className="card-flex">
+            <div>
               <p>Expiration Date</p>
-              <select>
-                <option value="0">Month</option>
-                <option value="1">01 January</option>
-                <option value="2">02 February</option>
-                <option value="3">03 March</option>
-                <option value="4">04 April</option>
-                <option value="5">05 May</option>
-                <option value="6">06 June</option>
-                <option value="7">07 July</option>
-                <option value="8">08 August</option>
-                <option value="9">09 September</option>
-                <option value="10">10 October</option>
-                <option value="11">11 November</option>
-                <option value="12">12 December</option>
-              </select>
-            </label>
-            <select>
-              <option value="0">Year</option>
-              <option value="1">2018</option>
-              <option value="1">2019</option>
-              <option value="1">2020</option>
-              <option value="1">2021</option>
-              <option value="1">2022</option>
-              <option value="1">2023</option>
-              <option value="1">2024</option>
-            </select>
-            <TextField
-              name="cvv"
-              label="CVV"
-              type="number"
-              className="smallInput"
-              margin="normal"
-              required
-            />
-        </form>
+              <input
+                name="month"
+                type="number"
+                className="small-input"
+                placeholder="mm"
+                margin="normal"
+                required
+              />
+              <input
+                name="year"
+                type="number"
+                className="small-input"
+                placeholder="yy"
+                margin="normal"
+                required
+              />
+            </div>
+            <div>
+                <p>CVV</p>
+                <input
+                  name="cvv"
+                  type="number"
+                  className="cvv-input"
+                  margin="normal"
+                  required
+                />
+            </div>
+          </div>
       </div>
     )
 }
