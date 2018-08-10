@@ -25,7 +25,8 @@ constructor(props) {
   this.state = {
     hasPass: false,
     pass: 'All-Day PugetPass $3.50',
-    warning: ''
+    warning: '',
+    showForm: false
   }
 
   this.handleInputChange = this.handleInputChange.bind(this)
@@ -56,7 +57,8 @@ checkForExistingPass = e => {
       warning: true
     });
   } else {
-    this.handleSubmitPass()
+    console.log('checking which action to do')
+    this.state.showForm ? this.handleSubmitPass() : this.showPaymentForm()
   }
 
 }
@@ -67,10 +69,22 @@ clearWarning = () => {
   });
 }
 
+showPaymentForm = e => {
+  if (e) {
+  e.preventDefault();
+  }
+  console.log('showing payment form')
+  this.setState({
+    showForm: true,
+    warning: false
+  });
+}
+
 handleSubmitPass = e => {
   if (e) {
   e.preventDefault();
   }
+  console.log('submitting pass')
   var newPass = this.state.pass;
   axios.post('/card/addpass', {
     id: this.props.card.id,
@@ -85,7 +99,7 @@ handleSubmitPass = e => {
 
   render() {
     return(
-      <CardAddPass user={this.props.user} card={this.props.card} pass={this.state.pass} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmitPass} checkForExistingPass={this.checkForExistingPass} warning={this.state.warning} clearWarning={this.clearWarning} />
+      <CardAddPass user={this.props.user} card={this.props.card} pass={this.state.pass} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmitPass} checkForExistingPass={this.checkForExistingPass} warning={this.state.warning} clearWarning={this.clearWarning} showForm={this.state.showForm} showPaymentForm={this.showPaymentForm}/>
     )
   }
 }
