@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import CardAddPass from './CardAddPass';
 import axios from 'axios';
 import store from './store';
-import { updateCard, updatePass} from './actions/index';
+import { updateCard, updatePass } from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 const mapDispatchToProps = {
   updateCard,
-  updatePass,
+  updatePass
 }
 
 const mapStatetoProps = state => {
