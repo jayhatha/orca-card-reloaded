@@ -1,3 +1,5 @@
+@import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
+
 body {
   position: relative;
   margin: 0;
@@ -294,6 +296,15 @@ li {
   border: none;
 }
 
+#map-button {
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  font-weight: bold;
+  color: rgb(34, 115, 236);
+  background-color: white;
+}
+
 .home {
   margin-bottom: 5em;
 }
@@ -318,6 +329,7 @@ li {
 
 .retail-location p {
   margin: 0;
+  font-size: 0.8em;
 }
 
 .retail-location span {

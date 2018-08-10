@@ -4,9 +4,8 @@ const RetailLocation = props => {
   return (
     <div className="retail-location">
       <hr/>
-      <h4>{props.location.name}</h4>
+      <button id="map-button" onClick={() => props.setLatLng(props.location.lat, props.location.lng)}>{props.location.name}</button>
       <p>{props.location.address}</p><span>{props.location.hours}</span>
-      <hr/>
     </div>
   )
 }

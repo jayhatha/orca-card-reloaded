@@ -13,24 +13,18 @@ class ProfileContainer extends Component {
       //this is where we define initial state
     }
 
-    componentDidMount() {
-    // get user activity and cards from store
-    }
-
-
-
     render() {
-        return (
-          <div>
-          <Helmet>
-                  <meta charSet="utf-8" />
-                  <title>ORCA | {this.props.user.first}'s Profile</title>
-          </Helmet>
-          <ProfileInfo user={this.props.user} card={this.props.card}/>
-          <Cards user={this.props.user} card={this.props.card}/>
-          <Activity user={this.props.user} card={this.props.card}/>
-          </div>
-        );
+      return (
+        <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>ORCA | {this.props.user.first}'s Profile</title>
+        </Helmet>
+        <ProfileInfo user={this.props.user} card={this.props.card}/>
+        <Cards user={this.props.user} card={this.props.card}/>
+        <Activity user={this.props.user} card={this.props.card}/>
+        </div>
+      );
     }
 }
 
