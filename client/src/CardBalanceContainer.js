@@ -27,18 +27,18 @@ class CardBalanceContainer extends Component {
         <h2>Add Value To Your Orca Card</h2>
         <h3>{this.props.user.first}'s Card: {this.props.card.id}</h3>
         <h3>Current Balance: <span>${this.props.card.balance}</span></h3>
-        <Button id="button" component={Link} to="/reload/addvalue">Add Value</Button>
+        <Link id="button" to="/reload/addvalue">Add Value</Link>
         <hr/>
         {this.props.card.auto_reload ? (
           <div>
             <h3>Auto-Reload is: <span>Enabled</span></h3>
             <h3>Current Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
-            <Button id="button" component={Link} to="/reload/auto-reload">Manage Auto-Reload</Button>
+            <Link id="button" to="/reload/auto-reload">Manage Auto-Reload</Link>
           </div>
           ) : (
           <div>
             <h3>Auto-Reload is: <span>Disabled</span></h3>
-            <Button id="button" component={Link} to="/reload/auto-reload" id="button">Enable Auto-Reload</Button>
+            <Link id="button" to="/reload/auto-reload" id="button">Enable Auto-Reload</Link>
           </div>
         )}
       </div>

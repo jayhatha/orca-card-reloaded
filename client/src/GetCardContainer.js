@@ -62,7 +62,7 @@ class GetCardContainer extends Component {
       <div>
         <div>
           <h4>Get a card online</h4>
-          <Button id="button" component={Link} to="/signup" className="button">SIGN UP</Button>
+          <Link id="button" to="/signup" className="button">Sign Up</Link>
         </div>
         <div>
           <h4>Get a card at a retail location</h4>

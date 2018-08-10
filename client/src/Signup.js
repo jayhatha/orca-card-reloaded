@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
 const Signup = props => {
-  const { classes } = props;
-
   return (
     <div className="form-container">
         <div className="signup-header">
@@ -163,7 +160,7 @@ const Signup = props => {
               required
             /><br />
           </div>
-          <Button className="signup-button" id="button" type="submit" value="Sign up">Sign up</Button>
+          <button className="signup-button" id="button" type="submit" value="Sign up">Sign Up</button>
         </form>
         <p className="alert-msg">{(props.response) ? props.response.message : ''}</p>
       </div>

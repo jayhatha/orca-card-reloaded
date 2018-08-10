@@ -92,7 +92,6 @@ const userReducer = (state = initialState.user, action) => {
 const cardReducer = (state = initialState.card, action) => {
   switch (action.type) {
     case UPDATE_CARD:
-      console.log("received the test action, here is the card: ", action.card);
       if (!action.card) {
         return state;
       } else {
