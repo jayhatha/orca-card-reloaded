@@ -1,3 +1,6 @@
+
+
+
 .App {
   text-align: center;
 }
@@ -36,21 +39,10 @@ li {
 .footer-link {
   display: block;
 }
-/* =^..^=   =^..^=   =^..^=  CARD STYLES  =^..^=    =^..^=    =^..^=    =^..^= */
-.card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  background-color: rgb(34, 115, 236);
-  padding-bottom: 5px;
-  width: 90vw;
-  height: 240px;
-  max-width: 100%;
-  border-radius: 0.6rem;
-  margin: 20px auto;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
+
+
+/*  === CARD STYLES LARGE === */
+
 @media screen and (min-width: 768px) {
   .card-container {
     width: 567px;
@@ -91,7 +83,8 @@ li {
     margin: 10px auto 0;
   }
 }
-/* === PHONE STYLES === */
+/* === CARD STYLES FOR PHONE === */
+
 @media screen and (max-width: 320px) {
   .card-container {
     width: 90vw;
@@ -142,7 +135,24 @@ li {
     margin: 2px auto 0;
   }
 }
-/* === DEFAULT STYLES === */
+
+/* === CARD DEFAULT STYLES === */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: rgb(34, 115, 236);
+  padding-bottom: 5px;
+  width: 90vw;
+  height: 240px;
+  max-width: 100%;
+  border-radius: 0.6rem;
+  margin: 20px auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 .card-nickname h3 {
   font-size: 1.5rem;
   color: black;
