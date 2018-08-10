@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const Cards = props => {
   return (
@@ -10,12 +12,14 @@ const Cards = props => {
           <h2>BALANCE</h2>
         </div>
         <div className='card-balance'>
-          <h1>{props.card.balance}</h1>
+          <h1>${props.card.balance}</h1>
         </div>
         <div>
         <span className='card-serial'>{props.card.id}</span>
         <span className='card-passes'>
-          PUGETPASS SEP18 $2.75
+          {props.card.pass ?
+          (<p>AUTO-RELOAD {props.card.pass}</p>) : ('')
+          }
         </span>
         <span className='card-passes'>
           {props.card.auto_reload ?
@@ -25,7 +29,10 @@ const Cards = props => {
       </div>
 
       </div>
-      <div className='card-buttons'>auto-load / pass / reload buttons go here</div>
+      <div className='card-buttons'>
+      <Button id="button" component={Link} to="/reload" className="button">Add value to card</Button>
+      <Button id="button" component={Link} to="/addpass" className="button">Add a pass</Button>
+      </div>
     </div>
   );
 };

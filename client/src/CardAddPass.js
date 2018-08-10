@@ -28,11 +28,20 @@ class CardAddPass extends Component {
   }
 
   render() {
+    let warning
+    let submitAction
+    if (this.props.warning) {
+      warning = <div id='confirmPass'> <h2>Your card already has a pass — do you want to replace it with a new one?</h2> <button id='button' type='submit'>Yes</button> <button id='button' type='button' onClick={this.props.clearWarning}>Cancel</button> </div>
+      submitAction = this.props.handleSubmit
+    } else {
+      warning = <button id="button" type="submit">Add Pass</button>
+      submitAction = this.props.checkForExistingPass
+    }
     return (
       <div className="form-container">
        <h2>Add a Pass To Your Orca Card</h2>
        <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
-       <form id='passSelect' onSubmit={this.props.handleSubmit}>
+       <form id='passSelect' onSubmit={submitAction}>
        <label>
        <h3>Pass to Add:</h3>
         <select form="passSelect" name="pass" id="pass" value={this.props.pass} onChange={this.props.handleInputChange}>
@@ -46,8 +55,9 @@ class CardAddPass extends Component {
         </select>
         </label>
         <br />
-        <button id="button" type="submit">Add Pass</button>
+        {warning}
         </form>
+
       </div>
     )
   }
