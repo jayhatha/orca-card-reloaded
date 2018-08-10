@@ -3,7 +3,6 @@ import {Helmet} from 'react-helmet';
 import axios from 'axios';
 import { connect, Provider } from 'react-redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
-import './App.css';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
 import Nav from './Navbar';
@@ -26,7 +25,6 @@ const mapDispatchToProps = {
 }
 
 const mapStatetoProps = state => {
-  console.log('mapping state: ', state.user, state.card)
   return {
     user: state.user,
     card: state.card
@@ -45,8 +43,6 @@ class App extends Component {
   liftTokenToState(data) {
     this.props.updateUser(data);
     this.fetchCardData();
-    console.log("Store is: ")
-    console.log(store.getState())
   }
 
   logout() {
@@ -74,24 +70,21 @@ class App extends Component {
         localStorage.setItem('mernToken', results.data.token);
         this.props.updateUser(results.data);
         this.fetchCardData();
-        console.log("Store is: ")
-        console.log(store.getState())
         }).catch( err => console.log(err))
 
     }
   }
 
-
-fetchCardData() {
+  fetchCardData() {
     axios.post('/user/cards', {
     id: this.props.user.id
-  })
-  .then( response => {
-    this.props.updateCard(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    })
+    .then( response => {
+      this.props.updateCard(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   componentDidMount() {
@@ -102,8 +95,8 @@ fetchCardData() {
     return(
       <div>
       <Helmet>
-            <meta charSet="utf-8" />
-            <title>ORCA | One Pass for Puget Sound Buses, Trains, and Ferries</title>
+        <meta charSet="utf-8" />
+        <title>ORCA | One Pass for Puget Sound Buses, Trains, and Ferries</title>
       </Helmet>
       <Provider store={store}>
         <Router>

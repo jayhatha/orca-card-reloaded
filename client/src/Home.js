@@ -7,14 +7,15 @@ const Home = props => {
 
   return (
     <div className="home">
-      <h3>Welcome to Orca!</h3>
+      <h1>Welcome to Orca!</h1>
+      <p>This is info about Orca.</p>
       <div class="have-card">
-        <h4>Have an Orca Card?</h4>
-        <Button id="button" component={Link} to={goToRoute} className="button">GO TO MY CARDS</Button>
+        <h3>Have an Orca Card?</h3>
+        <Link id="button" component={Link} to={goToRoute} className="button">Go To My Cards</Link>
       </div>
       <div>
-        <h4>Need a Card?</h4>
-        <Button id="button" component={Link} to="/getcard" className="button">GET A CARD</Button>
+        <h3>Need a Card?</h3>
+        <Link id="button" component={Link} to="/getcard" className="button">Get a Card</Link>
       </div>
     </div>
   );

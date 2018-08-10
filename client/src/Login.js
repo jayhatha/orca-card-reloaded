@@ -1,6 +1,5 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 
 const Login = props => {
@@ -29,10 +28,10 @@ const Login = props => {
           margin="normal"
           required
         /><br />
-        <Button id="button" type="submit" value="Log In">LOG IN</Button>
+        <button id="button" type="submit" value="Log In">Log In</button>
       </form>
       <div id="login-link">
-        <Link to={"/signup"}>Not a member? Sign up here.</Link>
+        <Link className="signup-link" to={"/signup"}>Not a member? Sign up here.</Link>
       </div>
       <p className="alert-msg">{(props.response) ? props.response.message : ''}</p>
     </div>
