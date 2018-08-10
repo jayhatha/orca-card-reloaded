@@ -12,7 +12,7 @@ const CardAddValue = props => {
         <TextField
             name="inputBalance"
             type="number"
-            className="inputField"
+            className="smallInput"
             value={props.inputBalance}
             onChange={props.handleInputChange}
             margin="normal"
