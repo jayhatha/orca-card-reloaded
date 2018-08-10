@@ -7,7 +7,7 @@ const CardAddValue = props => {
       <div className="form-container">
        <h2>Add Value To Your Orca Card</h2>
        <h3>{props.user.first}'s Card: {props.card.id}</h3>
-       <h3>Current Balance:</h3><span>{props.card.balance}</span>
+       <h3>Current Balance: <span>${props.card.balance}</span></h3>
        <h3>Amount to Add:</h3>
        <form onSubmit={props.handleSubmitValue}>
         <TextField

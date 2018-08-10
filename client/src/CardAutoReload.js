@@ -22,8 +22,8 @@ class CardAutoReload extends Component {
       <div class="form-container">
       {this.props.card.auto_reload || this.state.autoEnabled ? (
         <div>
-          <h3>Auto Reload is Enabled</h3>
-          <h3>Current Amount: ${this.props.card.auto_reload}</h3>
+          <h3>Auto Reload is: <span>Enabled</span></h3>
+          <h3>Current Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
           <form onSubmit={this.props.handleSubmitAutoReload}>
             <h3>New Amount:</h3>
             <TextField
@@ -40,7 +40,7 @@ class CardAutoReload extends Component {
         </div>
       ) : (
         <div>
-          <h3>Auto Reload is {this.props.card.auto_reload}</h3>
+          <h3>Auto Reload is: <span>Disabled</span></h3>
           <button onClick={this.enableAutoLoad} id="button">Enable Auto-Reload</button>
         </div>
       )}
