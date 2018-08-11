@@ -23,21 +23,22 @@ class CardBalanceContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Add Value To Your Orca Card</h2>
-        <h3>{this.props.user.first}'s Card: {this.props.card.id}</h3>
-        <h3>Current Balance: <span>${this.props.card.balance}</span></h3>
-        <Link id="button" to="/reload/addvalue">Add Value</Link>
-        <hr/>
+      <div className="manage-card-container">
+        <div className="balance-container">
+          <h2>Manage Your Orca Card</h2>
+          <h4>Card No. {this.props.card.id}</h4>
+          <h4>Current Balance: <span>${this.props.card.balance}</span></h4>
+          <Link id="button" to="/reload/addvalue">Add Value</Link>
+        </div>
         {this.props.card.auto_reload ? (
           <div>
-            <h3>Auto-Reload is: <span>Enabled</span></h3>
-            <h3>Current Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
+            <h4>Auto-Reload is: <span>Enabled</span></h4>
+            <h4>Current Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h4>
             <Link id="button" to="/reload/auto-reload">Manage Auto-Reload</Link>
           </div>
           ) : (
           <div>
-            <h3>Auto-Reload is: <span>Disabled</span></h3>
+            <h4>Auto-Reload is: <span>Disabled</span></h4>
             <Link id="button" to="/reload/auto-reload" id="button">Enable Auto-Reload</Link>
           </div>
         )}
