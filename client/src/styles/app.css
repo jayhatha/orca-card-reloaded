@@ -32,10 +32,12 @@ li {
   display: block; }
 
 .menu {
-  color: white; }
+  color: white;
+  font-size: 1.2em;
+  margin-right: .5em; }
 
 .nav-flex div a img {
-  margin: .5em; }
+  margin: .6em 0 .3em .5em; }
 
 .card-passes p {
   margin: 0; }
@@ -181,7 +183,7 @@ li {
     background-size: cover; } }
 
 .home {
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto; }
 
 .home p {
