@@ -13,11 +13,11 @@ const Cards = props => {
         <div className='card-balance'>
           <h1>${props.card.balance}</h1>
         </div>
-        <div>
+        <div className="card-bottom">
         <span className='card-serial'>{props.card.id}</span>
         <span className='card-passes'>
           {props.card.pass ?
-          (<p>AUTO-RELOAD {props.card.pass}</p>) : ('')
+          (<p>PASS {props.card.pass}</p>) : ('')
           }
         </span>
         <span className='card-passes'>
