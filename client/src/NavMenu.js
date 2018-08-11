@@ -4,7 +4,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from 'react-router-dom';
 
-
 class NavMenu extends React.Component {
   state = {
     anchorEl: null,
@@ -28,13 +27,14 @@ class NavMenu extends React.Component {
     const { anchorEl } = this.state;
     return (
       <div>
-        <Button
+        <button
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
+          className="menu"
         >
           Menu
-        </Button>
+        </button>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
