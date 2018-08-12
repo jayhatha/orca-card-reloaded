@@ -1,14 +1,17 @@
 // === COLORS ===
 
-$background: #FBE8A6;
-$button: #303C6C;
-$footer: #F4976C;
+$background: #2364AA;
+$button: #EA7317;
+$card: #3DA5D9;
+$navbar: #3DA5D9;
+$footer: #FEC601;
+$footer-bottom: #EA7317;
 $greyblue: #B4DFE5;
-$card: #D2FDFF;
 
 
 .App {
   text-align: center;
+  color: white;
 }
 
 body {
@@ -49,11 +52,17 @@ li {
 
 .menu {
   color: white;
+  font-size: 1.2em;
+  margin-right: .5em;
 }
 
 // Orca Logo Style
 .nav-flex div a img {
-  margin: .5em;
+  margin: .6em 0 .3em .5em;
+}
+
+.card-passes p {
+  margin: 0;
 }
 
 /*  === CARD STYLES LARGE === */
@@ -63,22 +72,6 @@ li {
     width: 567px;
     height: 270px;
     margin-bottom: 30px;
-  }
-
-  .card-serial {
-    padding-left: 1rem;
-    text-align: left;
-    position: relative;
-    bottom: 0;
-    left: 0;
-  }
-
-  .card-passes {
-    text-align: right;
-    padding-right: 1rem;
-    position: relative;
-    bottom: 0;
-    right: 0;
   }
 
   .card-balance h1 {
@@ -107,22 +100,6 @@ li {
     margin-bottom: 5px;
   }
 
-  .card-serial {
-    padding-left: 0 rem;
-    text-align: left;
-    position: relative;
-    bottom: 0;
-    left: 0;
-  }
-
-  .card-passes {
-    text-align: right;
-    padding-right: 0 rem;
-    position: relative;
-    bottom: 0;
-    right: 0;
-  }
-
   .card-balance {
     font-size: 3rem;
     margin-top: 0;
@@ -137,6 +114,7 @@ li {
 
   .card-top {
     font-size: 0.5rem;
+    background-color: $card;
   }
 
   .card-passes,
@@ -158,7 +136,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  background-color: $button;
+  background-color: $card;
   padding-bottom: 5px;
   width: 90vw;
   height: 240px;
@@ -166,6 +144,7 @@ li {
   border-radius: 0.6rem;
   margin: 20px auto;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border: 6px solid #fff;
 }
 
 .card-nickname h3 {
@@ -196,22 +175,10 @@ li {
 }
 
 .card-bottom {
+  display: flex;
+  justify-content: space-between;
   margin: 3px;
   padding: 0;
-}
-
-.card-serial {
-  text-align: left;
-  position: relative;
-  bottom: 5px;
-  left: -20px;
-}
-
-.card-passes {
-  text-align: right;
-  position: relative;
-  bottom: 5px;
-  right: -10px;
 }
 
 .card-passes,
@@ -224,6 +191,10 @@ li {
   text-align: center;
   margin: 10px auto 0;
   padding-top: 5px;
+}
+
+.card-activity {
+  margin-bottom: 3em;
 }
 
 .map-wrapper {
@@ -241,14 +212,12 @@ li {
   width: 90vw;
 }
 
-
 .nav-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: $button;
-  border-bottom: 3px solid $button;
+  background-color: $navbar;
 }
 
 .nav-flex div a {
@@ -261,12 +230,38 @@ li {
   max-width: 75px;
 }
 
-.footer-container {
-  margin-top: 5em;
+.background-wrapper {
+  width: 100vw;
+  background-image: url('../citybg.png');
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 550px) {
+  .background-wrapper {
+    width: 100vw;
+    background-image: url('../cityCropped.png');
+    background-size: cover;
+  }
+}
+
+.home {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.home p {
+  text-align: left;
+}
+
+.get-a-card {
+  margin-bottom: 5em;
+}
+
+.need-card {
+  padding-bottom: 4em;
 }
 
 .footer-top {
-  margin-top: 2em;
   padding: 1.5em;
   background-color: $footer;
 }
@@ -295,7 +290,7 @@ li {
 
 .footer-bottom {
   padding: 1em;
-  background-color: $button;
+  background-color: $footer-bottom;
   color: white;
 }
 
@@ -340,6 +335,7 @@ li {
   border: none;
   font-weight: bold;
   color: $button;
+  background: none;
 }
 
 .have-card {
@@ -387,6 +383,16 @@ li {
 .signup-section p {
   text-align: left;
   margin-bottom: 0;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 4em;
+}
+
+#login-link {
+  margin-bottom: 9em;
 }
 
 .fade-title {
@@ -497,4 +503,9 @@ li {
 
 .payment-container {
   margin: 2em 0;
+}
+
+// Profile Info
+ul {
+  padding: 0;
 }
