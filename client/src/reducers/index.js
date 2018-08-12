@@ -42,7 +42,6 @@ const initialState = {
 const userReducer = (state = initialState.user, action) => {
   switch (action.type) {
 		case RESET_USER:
-		console.log('called the resetUser reducer')
 		var blank = Object.assign({}, state, {
 			token: "",
 	    id: null,

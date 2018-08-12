@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const Signup = props => {
   return (
     <div className="form-container">
+      <NotificationContainer />
         <div className="signup-header">
           <h4>Sign up now to get all the benefits of Orca!</h4>
         </div>

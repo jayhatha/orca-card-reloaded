@@ -13,6 +13,7 @@ import CardBalanceContainer from './CardBalanceContainer';
 import CardPassContainer from './CardPassContainer';
 import CardAddValueContainer from './CardAddValueContainer';
 import CardAutoReloadContainer from './CardAutoReloadContainer';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import Footer from './Footer';
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -102,6 +103,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Nav/>
+            <NotificationContainer />
             <Route exact path="/" component= {() => <Home user={this.props.user}/>} />
             <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
             <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />

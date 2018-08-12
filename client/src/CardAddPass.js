@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import PaymentWidget from './PaymentWidget'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class CardAddPass extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class CardAddPass extends Component {
     }
 
     if (this.props.warning) {
-      warning = <div id='confirmPass'> <h2>Your card already has a pass — do you want to replace it with a new one?</h2> <button id='button' type='submit'>Yes</button> <button id='button' type='button' onClick={this.props.clearWarning}>Cancel</button> </div>
+      warning = <div id='confirmPass'> <h2>Your card already has a pass — do you want to replace it with a new one?</h2> <button id='button' type='submit'>Yes</button> <button id='button' type='button' onClick={this.props.clearWarning}>No</button> </div>
       this.props.showForm ? submitAction = this.props.handleSubmit : submitAction = this.props.showPaymentForm
     } else {
       warning = <button id="button" type="submit">Add Pass</button>
@@ -51,6 +52,7 @@ class CardAddPass extends Component {
 
     return (
       <div className="form-container">
+        <NotificationContainer />
        <h2>Add a Pass To Your Orca Card</h2>
        <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
        <form id='passSelect' onSubmit={submitAction}>

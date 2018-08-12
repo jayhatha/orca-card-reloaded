@@ -5,6 +5,7 @@ import store from './store';
 import { updateCard, updatePass } from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const mapDispatchToProps = {
   updateCard,
@@ -35,6 +36,26 @@ constructor(props) {
   this.clearWarning = this.clearWarning.bind(this)
 }
 
+createNotification = (type) => {
+  return () => {
+    switch (type) {
+      case 'info':
+        NotificationManager.info('Info message');
+        break;
+      case 'success':
+        NotificationManager.success(this.state.response, 'Success!', 2500);
+        break;
+      case 'warning':
+        NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+        break;
+      case 'error':
+        console.log('firing createNotification');
+        NotificationManager.error(this.state.response, 'Error', 2500);
+        break;
+    }
+  };
+};
+
 componentDidMount() {
   this.setState({
     hasPass: this.props.card.pass ? true : false
@@ -57,7 +78,6 @@ checkForExistingPass = e => {
       warning: true
     });
   } else {
-    console.log('checking which action to do')
     this.state.showForm ? this.handleSubmitPass() : this.showPaymentForm()
   }
 
@@ -66,14 +86,13 @@ checkForExistingPass = e => {
 clearWarning = () => {
   this.setState({
     warning: false
-  });
+  }, this.props.history.push("/profile"));
 }
 
 showPaymentForm = e => {
   if (e) {
   e.preventDefault();
   }
-  console.log('showing payment form')
   this.setState({
     showForm: true,
     warning: false
@@ -90,6 +109,9 @@ handleSubmitPass = e => {
     id: this.props.card.id,
     pass: newPass
   }).then( result => {
+    this.setState({
+      response: 'Your pass has been added to your card.'
+    }, this.createNotification('success'))
     this.props.updatePass(newPass)
     this.props.history.push("/profile");
   })

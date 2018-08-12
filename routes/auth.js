@@ -42,11 +42,18 @@ router.post('/signup', (req, res) => {
         res.json({ user, token });
       } else {
         // we found a record, so they can't use that email
-        console.log("We got an error creating the user");
-        console.log(err);
-        res.status(401).json(err);
+        res.json({
+          error: true,
+          message: 'That email address is already in use.'
+        });
       }
-    })
+    }).catch(function (err) {
+      console.log(err);
+      res.json({
+        error: true,
+        message: err.errors[0].message
+      });
+});
 });
 
 router.post("/login", (req, res) => {
@@ -63,14 +70,19 @@ router.post("/login", (req, res) => {
         res.json({ user, token });
       } else {
         // else send error to frontend
-        res.status(401).json({
+        console.log('else - password is wrong')
+        res.json({
           error: true,
           message: 'Email or password is incorrect.'
         });
       }
     } else {
       // else send error to frontend
-      res.status(401).json(err);
+      console.log('else - no user found')
+      res.json({
+        error: true,
+        message: 'Email or password is incorrect.'
+      });
     }
   });
 });
