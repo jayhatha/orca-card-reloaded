@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 import { updateUser, updateCard, resetUser} from './actions/index';
 import { connect } from 'react-redux';
 import store from './store';
-import logo from './OrcaLogo.png';
+import logo from './OrcaWhiteLogo.png';
 import NavMenu from './NavMenu';
 
 const mapDispatchToProps = {

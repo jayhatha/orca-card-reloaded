@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: '#D2FDFF',
+    backgroundColor: '#3DA5D9',
     color: theme.palette.common.white,
   },
   body: {
@@ -61,7 +61,7 @@ function Activity(props) {
   const { classes } = props;
 
   return (
-    <div>
+    <div className="card-activity">
     <h1>Your Card Activity</h1>
     <Paper className={classes.root}>
       <Table className={classes.table}>
