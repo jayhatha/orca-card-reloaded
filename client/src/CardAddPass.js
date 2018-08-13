@@ -53,26 +53,25 @@ class CardAddPass extends Component {
     return (
       <div className="form-container">
         <NotificationContainer />
-       <h2>Add a Pass To Your Orca Card</h2>
-       <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
-       <form id='passSelect' onSubmit={submitAction}>
-       <label>
-       <h3>Pass to Add:</h3>
-        <select form="passSelect" name="pass" id="pass" value={this.props.pass} onChange={this.props.handleInputChange}>
-            <option value='All-Day PugetPass $3.50'>All-Day PugetPass $3.50 ($8.00)</option>
-            <option value={"PugetPass " + this.getMonth() + " $2.75"}>PugetPass $2.75 ($99.00)</option>
-            <option value={"PugetPass " + this.getMonth() + " $3.25"}>PugetPass $3.25 ($117.00)</option>
-            <option value={"PugetPass " + this.getMonth() + " $4.50"}>PugetPass $4.50 ($162.00)</option>
-            <option value={"PugetPass " + this.getMonth() + " $5.25"}>PugetPass $5.25 ($189.00)</option>
-            <option value={"PugetPass " + this.getMonth() + " $10.00"}>PugetPass $10.00 ($360.00)</option>
-            <option value="'WSF Vashon Island Ferry ' + this.getMonth()">WSF Vashon Island Ferry $10.00 ($360.00)</option>
-        </select>
-        </label>
-        <br />
-        {paymentForm}
-        {warning}
+        <h2>Add a Pass To Your Orca Card</h2>
+        <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
+        <form id='passSelect' onSubmit={submitAction}>
+          <label>
+            <h3>Pass to Add:</h3>
+            <select form="passSelect" name="pass" id="pass" value={this.props.pass} onChange={this.props.handleInputChange}>
+              <option value='All-Day PugetPass $3.50'>All-Day PugetPass $3.50 ($8.00)</option>
+              <option value={"PugetPass " + this.getMonth() + " $2.75"}>PugetPass $2.75 ($99.00)</option>
+              <option value={"PugetPass " + this.getMonth() + " $3.25"}>PugetPass $3.25 ($117.00)</option>
+              <option value={"PugetPass " + this.getMonth() + " $4.50"}>PugetPass $4.50 ($162.00)</option>
+              <option value={"PugetPass " + this.getMonth() + " $5.25"}>PugetPass $5.25 ($189.00)</option>
+              <option value={"PugetPass " + this.getMonth() + " $10.00"}>PugetPass $10.00 ($360.00)</option>
+              <option value="'WSF Vashon Island Ferry ' + this.getMonth()">WSF Vashon Island Ferry $10.00 ($360.00)</option>
+            </select>
+          </label>
+          <br />
+          {paymentForm}
+          {warning}
         </form>
-
       </div>
     )
   }

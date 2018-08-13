@@ -32,7 +32,7 @@ li {
   display: block; }
 
 .menu {
-  color: white;
+  color: #2364AA;
   font-size: 1.2em;
   margin-right: .5em; }
 
@@ -161,11 +161,12 @@ li {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #3DA5D9; }
+  background-color: #FFF;
+  border-bottom: 8px solid #3DA5D9; }
 
 .nav-flex div a {
   text-decoration: none;
-  color: #EA7317;
+  color: black;
   margin: 1.33em 0; }
 
 .nav-flex div a img {
@@ -184,10 +185,13 @@ li {
 
 .home {
   width: 90vw;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 1em; }
 
 .home p {
-  text-align: left; }
+  text-align: center;
+  padding: 1em 0;
+  line-height: 1.5em; }
 
 .get-a-card {
   margin-bottom: 5em; }
@@ -219,7 +223,7 @@ li {
 
 .footer-bottom {
   padding: 1em;
-  background-color: #EA7317;
+  background-color: #2364AA;
   color: white; }
 
 .footer-bottom div a {
@@ -362,38 +366,61 @@ li {
 
 .manage-card-container {
   width: 90vw;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 2em 0; }
 
 .manage-card-container h2 {
-  margin-bottom: 1em; }
+  margin-bottom: 2em; }
 
 .manage-card-container h4 {
   text-align: left;
   margin-bottom: .5em; }
 
 .balance-container {
-  margin-bottom: 2em; }
+  margin-bottom: 4em; }
+
+.reload-container {
+  margin-bottom: 3em; }
 
 .flex-amount {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end; }
 
-.addvalue-container {
+.flex-amount h4,
+.flex-amount span {
+  text-align: left;
+  margin-bottom: 15px;
+  margin-left: 0em;
+  padding-right: .5em; }
+
+.addvalue-container,
+.reload-container {
   width: 90vw;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 2em 0; }
 
 .addvalue-container h4,
 .addvalue-container span {
   text-align: left;
-  margin-bottom: 8px;
-  margin-left: .5em; }
+  margin-bottom: 15px;
+  margin-left: 0em;
+  padding-right: .5em; }
+
+.add-amount-form {
+  margin-bottom: 3em; }
 
 .amount-form p {
   margin-top: 0; }
 
 .payment-container {
-  margin: 2em 0; }
+  margin: 2em 0;
+  border: 2px solid white;
+  border-radius: .5em;
+  padding: .25em; }
+
+.disable-reload {
+  padding: .75em 0; }
 
 ul {
   padding: 0; }

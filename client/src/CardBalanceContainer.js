@@ -31,13 +31,13 @@ class CardBalanceContainer extends Component {
           <Link id="button" to="/reload/addvalue">Add Value</Link>
         </div>
         {this.props.card.auto_reload ? (
-          <div>
+          <div className="reload-container">
             <h4>Auto-Reload is: <span>Enabled</span></h4>
             <h4>Current Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h4>
             <Link id="button" to="/reload/auto-reload">Manage Auto-Reload</Link>
           </div>
           ) : (
-          <div>
+          <div className="reload-container">
             <h4>Auto-Reload is: <span>Disabled</span></h4>
             <Link id="button" to="/reload/auto-reload" id="button">Enable Auto-Reload</Link>
           </div>
