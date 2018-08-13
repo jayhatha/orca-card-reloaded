@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = props => {
   return (
@@ -6,7 +7,7 @@ const Footer = props => {
       <div className="footer-top">
         <a className="footer-link" href="#">FAQ</a>
         <a className="footer-link" href="#">Help</a>
-        <a className="footer-link" href="#">Contact</a>
+        <Link className="footer-link" to="/contact">Contact</Link>
         <a className="footer-link" href="http://www.soundtransit.org/Trip-Planner">Trip Planner</a>
       </div>
       <div class="languages">

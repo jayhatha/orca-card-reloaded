@@ -49,6 +49,12 @@ li {
 .card-passes p {
   margin: 0; }
 
+.contact-info {
+  margin-bottom: 15em; }
+
+.error-page {
+  padding: 3em 0 10em 0; }
+
 /*  === CARD STYLES LARGE === */
 @media screen and (min-width: 768px) {
   .card-container {
