@@ -52,7 +52,6 @@ class CardAddPass extends Component {
 
     return (
       <div className="form-container">
-        <NotificationContainer />
        <h2>Add a Pass To Your Orca Card</h2>
        <h3>Current Passes:</h3><span>{this.props.card.pass}</span>
        <form id='passSelect' onSubmit={submitAction}>

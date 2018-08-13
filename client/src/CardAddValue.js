@@ -1,10 +1,12 @@
 import React from 'react';
 import PaymentWidget from './PaymentWidget';
 import TextField from '@material-ui/core/TextField';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const CardAddValue = props => {
     return (
       <div className="addvalue-container">
+        <NotificationContainer />
        <h2>Add Money To Your Card</h2>
        <h3>Card No. {props.card.id}</h3>
        <h3>Current Balance: <span>${props.card.balance}</span></h3>

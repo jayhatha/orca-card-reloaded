@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PaymentWidget from './PaymentWidget';
 import TextField from '@material-ui/core/TextField';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class CardAutoReload extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class CardAutoReload extends Component {
   render() {
     return (
       <div class="form-container">
+        <NotificationContainer />
         <h3>Current Auto-Reload Amount: ${this.props.card.auto_reload ? this.props.card.auto_reload : 0}</h3>
         <form onSubmit={this.props.handleSubmitAutoReload}>
           <h3>New Amount:</h3>

@@ -5,6 +5,7 @@ import store from './store';
 import { updateAutoReload } from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const mapDispatchToProps = {
   updateAutoReload
@@ -21,12 +22,34 @@ class CardAutoReloadContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      reloadValue: 0
+      reloadValue: 0,
+      response: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitAutoReload = this.handleSubmitAutoReload.bind(this)
     this.handleSubmitDisableReload = this.handleSubmitDisableReload.bind(this)
+    this.createNotification = this.createNotification.bind(this);
   }
+
+  createNotification = (type) => {
+    return () => {
+      switch (type) {
+        case 'info':
+          NotificationManager.info('Info message');
+          break;
+        case 'success':
+          NotificationManager.success(this.state.response, 'Success!', 2500);
+          break;
+        case 'warning':
+          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+          break;
+        case 'error':
+          console.log('firing createNotification');
+          NotificationManager.error(this.state.response, 'Error', 2500);
+          break;
+      }
+    };
+  };
 
   handleInputChange = e => {
     const name = e.target.name;
@@ -43,6 +66,9 @@ class CardAutoReloadContainer extends Component {
       id: this.props.card.id,
       auto_reload: newReload
     }).then( result => {
+      this.setState({
+        response: 'You\'ve enabled auto-reload on this ORCA card.'
+      }, this.createNotification('success'))
       this.props.updateAutoReload(newReload)
       this.props.history.push("/profile");
     })
@@ -54,6 +80,9 @@ class CardAutoReloadContainer extends Component {
       id: this.props.card.id,
       auto_reload: null
     }).then( result => {
+      this.setState({
+        response: 'You\'ve disabled auto-reload on this ORCA card.'
+      }, this.createNotification('success'))
       this.props.updateAutoReload(null)
       this.props.history.push("/profile");
     })
@@ -61,9 +90,9 @@ class CardAutoReloadContainer extends Component {
 
   render() {
     return (
-      <div>        
-        <CardAutoReload user={this.props.user} 
-                        card={this.props.card} 
+      <div>
+        <CardAutoReload user={this.props.user}
+                        card={this.props.card}
                         reloadValue={this.state.reloadValue}
                         handleInputChange={this.handleInputChange}
                         handleSubmitAutoReload={this.handleSubmitAutoReload}
