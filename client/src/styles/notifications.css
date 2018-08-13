@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'Roboto', sans-serif;
+  font-family: Notification;
+  src: url("fonts/notification.eot?s3g3t9");
+  src: url("fonts/notification.eot?#iefixs3g3t9") format("embedded-opentype"), url(fonts/notification.woff?s3g3t9) format("woff"), url(fonts/notification.ttf?s3g3t9) format("truetype"), url(fonts/notification.svg?s3g3t9#notification) format("svg");
+  font-weight: 400;
   font-style: normal; }
 
 .notification-container {
@@ -33,7 +36,7 @@
     line-height: 1.2em;
     font-weight: bold;
     margin: 0 0 5px 0; }
-  .notification:hover, .notification:focus {
+  .notification:focus, .notification:hover {
     opacity: 1; }
 
 .notification-enter {

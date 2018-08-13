@@ -10,5 +10,11 @@ router.post('/cards', (req, res) => {
 })
 })
 
+// router.put('/editinfo', (req, res) {
+//   db.user.find({ where: {id: req.body.id }}).then(function(user, err) {
+//
+//     res.json({user: user});
+// })
+// })
 
 module.exports = router;

@@ -67,13 +67,9 @@ class CardAutoReloadContainer extends Component {
       id: this.props.card.id,
       auto_reload: newReload
     }).then( result => {
-<<<<<<< HEAD
       this.setState({
         response: 'You\'ve enabled auto-reload on this ORCA card.'
       }, this.createNotification('success'))
-=======
-      // Update new auto-reload value in the store
->>>>>>> a72ec5b602b5aa77397110b42853b7be275a87eb
       this.props.updateAutoReload(newReload)
       this.props.history.push("/profile");
     })
@@ -86,13 +82,9 @@ class CardAutoReloadContainer extends Component {
       id: this.props.card.id,
       auto_reload: null
     }).then( result => {
-<<<<<<< HEAD
       this.setState({
         response: 'You\'ve disabled auto-reload on this ORCA card.'
       }, this.createNotification('success'))
-=======
-      // Update auto-reload to null in the store
->>>>>>> a72ec5b602b5aa77397110b42853b7be275a87eb
       this.props.updateAutoReload(null)
       this.props.history.push("/profile");
     })

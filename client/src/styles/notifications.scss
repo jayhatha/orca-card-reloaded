@@ -1,7 +1,9 @@
 @import 'variables';
-
 @font-face {
-  font-family: 'Roboto', sans-serif;
+  font-family: Notification;
+  src: url("fonts/notification.eot?s3g3t9");
+  src: url("fonts/notification.eot?#iefixs3g3t9") format("embedded-opentype"),url(fonts/notification.woff?s3g3t9) format("woff"),url(fonts/notification.ttf?s3g3t9) format("truetype"),url(fonts/notification.svg?s3g3t9#notification) format("svg");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -31,13 +33,16 @@
   position: relative;
   opacity: $react-notifications-opacity;
   margin-top: $react-notifications-margin-top;
+
   .title {
     font-size: $react-notifications-title-font-size;
     line-height: $react-notifications-title-line-height;
     font-weight: $react-notifications-title-font-weight;
     margin: $react-notifications-title-margin;
   }
-  &:hover, &:focus {
+
+  &:focus,
+  &:hover {
     opacity: $react-notifications-hover-opacity;
   }
 }
@@ -82,6 +87,7 @@
 
 .notification-info {
   background-color: $react-notifications-info-background-color;
+
   &:before {
     content: $react-notifications-info-content;
   }
@@ -89,6 +95,7 @@
 
 .notification-success {
   background-color: $react-notifications-success-background-color;
+
   &:before {
     content: $react-notifications-success-content;
   }
@@ -96,6 +103,7 @@
 
 .notification-warning {
   background-color: $react-notifications-warning-background-color;
+
   &:before {
     content: $react-notifications-warning-content;
   }
@@ -103,6 +111,7 @@
 
 .notification-error {
   background-color: $react-notifications-error-background-color;
+
   &:before {
     content: $react-notifications-error-content;
   }

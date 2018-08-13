@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import './styles/mapbox.css';
+import './styles/notifications.css';
 import ConnectedApp from './App';
 import { Provider } from 'react-redux';
 import store from './store/index';
