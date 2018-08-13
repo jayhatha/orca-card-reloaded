@@ -50,12 +50,10 @@ class LoginContainer extends Component {
       password: this.state.password
     }).then( result => {
       if (result.data.hasOwnProperty('error')) {
-        console.log(result.data.message)
         this.setState({
           response: result.data.message
         }, this.createNotification('error'))
       } else {
-        console.log(result.data)
         localStorage.setItem('mernToken', result.data.token)
         this.props.liftToken(result.data);
         this.setState({

@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
-import Signup from './Signup';
+import EditInfo from './EditInfo';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { connect } from 'react-redux';
+import { NotificationContainer, NotificationManager} from 'react-notifications';
+import { updateProfile } from './actions/index';
 
-class SignupContainer extends Component {
+const mapDispatchToProps = {
+  updateProfile
+}
+
+const mapStatetoProps = state => {
+  return {
+    user: state.user,
+    card: state.card
+  }
+}
+
+class EditInfoContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -17,11 +30,7 @@ class SignupContainer extends Component {
       city: '',
       state: '',
       zip: '',
-      email: '',
-      password: '',
-      question: '',
-      answer: '',
-      response: ''
+      email: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,14 +40,8 @@ class SignupContainer extends Component {
     createNotification = (type) => {
       return () => {
         switch (type) {
-          case 'info':
-            NotificationManager.info('Info message');
-            break;
           case 'success':
             NotificationManager.success(this.state.response, 'Success!', 2500);
-            break;
-          case 'warning':
-            NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
             break;
           case 'error':
             NotificationManager.error(this.state.response, 'Error', 2500);
@@ -57,7 +60,8 @@ class SignupContainer extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    axios.post('/auth/signup', {
+    axios.post('/user/edit', {
+      id: this.props.user.id,
       first: this.state.first,
       last: this.state.last,
       username: this.state.username,
@@ -68,20 +72,17 @@ class SignupContainer extends Component {
       city: this.state.city,
       state: this.state.state,
       zip: this.state.zip,
-      password: this.state.password,
-      question: this.state.question,
-      answer: this.state.answer
     }).then( result => {
       if (result.data.hasOwnProperty('error')) {
         this.setState({
           response: result.data.message
         }, this.createNotification('error'))
       } else {
-      localStorage.setItem('mernToken', result.data.token)
-      this.props.liftToken(result.data)
       this.setState({
-        response: 'Account created and logged in. Welcome to ORCA.'
+        response: 'Your information has been updated.'
       }, this.createNotification('success'))
+      console.log(result.data.user)
+      this.props.updateProfile(result.data);
       this.props.history.push("/profile");
     }
     }).catch( err => this.setState({
@@ -91,11 +92,12 @@ class SignupContainer extends Component {
 
   render() {
     return (
-      <Signup handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange}
+      <EditInfo handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange}
               {...this.state}
       />
     )
   }
 }
+const ConnectedEditInfo = connect(mapStatetoProps, mapDispatchToProps)(EditInfoContainer)
 
-export default withRouter(SignupContainer);
+export default withRouter(ConnectedEditInfo);

@@ -4,3 +4,4 @@ export const RESET_USER = 'RESET_USER';
 export const UPDATE_BALANCE = 'UPDATE_BALANCE';
 export const UPDATE_AUTO_RELOAD = 'UPDATE_AUTO_RELOAD';
 export const UPDATE_PASS = 'UPDATE_PASS';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';

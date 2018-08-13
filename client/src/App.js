@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
-import { NotificationContainer } from 'react-notifications';
+import { NotificationContainer, NotificationManager} from 'react-notifications';
 import { connect, Provider } from 'react-redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -14,6 +14,7 @@ import CardBalanceContainer from './CardBalanceContainer';
 import CardPassContainer from './CardPassContainer';
 import CardAddValueContainer from './CardAddValueContainer';
 import CardAutoReloadContainer from './CardAutoReloadContainer';
+import ConnectedEditInfo from './EditInfoContainer';
 import Nav from './Navbar';
 import Home from './Home';
 import Footer from './Footer';
@@ -111,6 +112,7 @@ class App extends Component {
             <Route exact path="/reload" component = {() => <CardBalanceContainer/>} />
             <Route exact path="/reload/addvalue" component = {() => <CardAddValueContainer/>} />
             <Route exact path="/reload/auto-reload" component = {() => <CardAutoReloadContainer/>} />
+            <Route exact path="/edit" component = {() => <ConnectedEditInfo />} />
             <Footer className="footer"/>
           </div>
         </Router>

@@ -5,7 +5,8 @@ import {
   RESET_USER,
   UPDATE_BALANCE,
   UPDATE_AUTO_RELOAD,
-  UPDATE_PASS
+  UPDATE_PASS,
+  UPDATE_PROFILE
 } from "../constants/action_types";
 
 const initialState = {
@@ -83,6 +84,25 @@ const userReducer = (state = initialState.user, action) => {
         });
         return newObj;
       }
+      case UPDATE_PROFILE:
+        if (!action.user) {
+          return state;
+        } else {
+          var newData = Object.assign({}, state, {
+            id: action.user.user.id,
+            first: action.user.user.first,
+            last: action.user.user.last,
+            username: action.user.user.username,
+            email: action.user.user.email,
+            phone: action.user.user.phone,
+            dob: action.user.user.dob,
+            street: action.user.user.street,
+            city: action.user.user.city,
+            state: action.user.user.state,
+            zip: action.user.user.zip
+          });
+          return newData;
+        }
     default:
       return state;
   }

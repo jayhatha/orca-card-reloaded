@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProfileInfo = props => {
   return (
@@ -10,6 +11,7 @@ const ProfileInfo = props => {
       <li>{props.user.phone}</li>
 
     </ul>
+    <Link id="button" to="/edit" className="button">Edit My Info</Link>
   </div>
 
   );
