@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationContainer } from 'react-notifications';
 import { connect, Provider } from 'react-redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
 import {BrowserRouter as Router, Route} from "react-router-dom";

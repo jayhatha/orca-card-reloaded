@@ -15,11 +15,17 @@ li {
   margin: 0, auto; }
 
 .inputField {
-  width: 90vw; }
+  width: 80vw; }
 
 .form-container {
   width: 90vw;
   margin: 0 auto; }
+
+.form-white {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: .5em;
+  padding: .5em;
+  margin-top: 3em; }
 
 .form-container .btn {
   text-align: right; }
@@ -223,7 +229,7 @@ li {
 
 .footer-bottom {
   padding: 1em;
-  background-color: #2364AA;
+  background-color: #19487a;
   color: white; }
 
 .footer-bottom div a {
@@ -285,6 +291,18 @@ li {
 .retail-location span {
   font-size: 0.8em; }
 
+#signupForm {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: .5em;
+  padding: .5em;
+  margin-top: 3em; }
+
+.signup-header h4 {
+  margin-top: 3em; }
+
+.secret-question {
+  color: black; }
+
 .signup-section {
   margin-bottom: 4em; }
 
@@ -307,8 +325,11 @@ li {
   color: white;
   margin-bottom: 4em; }
 
+#passSelect {
+  margin-bottom: 10em; }
+
 #login-link {
-  margin-bottom: 9em; }
+  margin: 2em 0 10em 0; }
 
 .fade-title {
   color: gray; }

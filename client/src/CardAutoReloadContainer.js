@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import CardAutoReload from './CardAutoReload';
 import axios from 'axios';
-import store from './store';
 import { updateAutoReload } from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 
 const mapDispatchToProps = {
   updateAutoReload
@@ -62,7 +61,7 @@ class CardAutoReloadContainer extends Component {
   // Axios post to update auto-reload in database
   handleSubmitAutoReload = e => {
     e.preventDefault();
-    var newReload = parseInt(this.state.reloadValue)
+    var newReload = parseInt(this.state.reloadValue, 10)
     axios.post('/card/auto_reload', {
       id: this.props.card.id,
       auto_reload: newReload

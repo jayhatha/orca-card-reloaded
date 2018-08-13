@@ -1,14 +1,11 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const Login = props => {
-
   return (
     <div className="form-container">
-      <NotificationContainer />
-      <form onSubmit={props.handleSubmit}>
+      <form className="form-white" onSubmit={props.handleSubmit}>
         <TextField
           id="email"
           name="email"

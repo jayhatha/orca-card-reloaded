@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Login from './Login';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 
 class LoginContainer extends Component {
   constructor(props) {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import RetailLocation from './RetailLocation';
-import Button from '@material-ui/core/Button';
 import ReactMapboxGl, {Marker, Popup} from "react-mapbox-gl";
 import locations from './retailLocationData';
 
@@ -18,7 +16,6 @@ class GetCardContainer extends Component {
   }
 
   setLatLng = (lat, lng) => {
-    console.log("in function. lat =", lat, "lng =", lng)
     this.setState({
       currentLat: lat,
       currentLng: lng
@@ -44,8 +41,6 @@ class GetCardContainer extends Component {
                 </Marker>
                 {location.lng === this.state.currentLng ? (
                   <Popup coordinates={[location.lng, location.lat]}
-                         closeButton={true} 
-                         closeOnClick={false} 
                          anchor="bottom"
                          offset={{'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]}}>
                     <p>{location.name}</p>
@@ -55,8 +50,6 @@ class GetCardContainer extends Component {
                 )}
               </div>)
     })
-
-    console.log("LAT LNG: ", this.state.currentLat, this.state.currentLng)
 
     return (
       <div>
