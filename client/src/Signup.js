@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 const Signup = props => {
   return (
     <div className="form-container">
-      <NotificationContainer />
         <div className="signup-header">
-          <h4>Sign up now to get all the benefits of Orca!</h4>
+          <h4>Sign up to get your ORCA card!</h4>
         </div>
         <form id="signupForm" onSubmit={props.handleSubmit}>
           <div className="signup-section">
@@ -120,7 +118,7 @@ const Signup = props => {
           </div>
           <div className="signup-section">
             <h3>My ORCA Login Details</h3>
-        <label>
+        <label className="secret-question">
          Choose a secret question:
          <select form="signupForm" name="question" id="question" value={props.question} onChange={props.handleInputChange}>
            <option value="What street did you live on in second grade?">What street did you live on in second grade?</option>

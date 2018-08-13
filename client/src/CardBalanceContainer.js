@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import Button from "@material-ui/core/Button"
-import CardAddValue from './CardAddValue';
-import CardAutoReload from './CardAutoReload';
-import axios from 'axios';
-import store from './store';
 import { Link } from 'react-router-dom';
-import { updateCard, updateBalance, updateAutoReload} from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
@@ -17,10 +11,6 @@ const mapStatetoProps = state => {
 }
 
 class CardBalanceContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div className="manage-card-container">

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 const Home = props => {
   var goToRoute = props.user.first ? "/profile" : "/login"

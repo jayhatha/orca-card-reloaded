@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import CardAddPass from './CardAddPass';
 import axios from 'axios';
-import store from './store';
 import { updateCard, updatePass } from './actions/index';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 
 const mapDispatchToProps = {
   updateCard,
@@ -29,7 +28,6 @@ class CardPassContainer extends Component {
       warning: '',
       showForm: false
     }
-
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitPass = this.handleSubmitPass.bind(this)
     this.checkForExistingPass = this.checkForExistingPass.bind(this)
