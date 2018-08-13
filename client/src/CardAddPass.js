@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import PaymentWidget from './PaymentWidget'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class CardAddPass extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   getMonth() {
     var d = new Date();

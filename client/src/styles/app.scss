@@ -5,18 +5,8 @@ $button: #EA7317;
 $card: #3DA5D9;
 $navbar: #FFF;
 $footer: #FEC601;
-$footer-bottom: #2364AA;
+$footer-bottom: rgb(25, 72, 122);
 $greyblue: #B4DFE5;
-
-// $background: #2364AA;
-// $button: #EA7317;
-// $card: #3DA5D9;
-// $navbar: #3DA5D9;
-// $footer: #FEC601;
-// $footer-bottom:#EA7317;
-// $greyblue: #B4DFE5;
-
-
 
 .App {
   text-align: center;
@@ -38,12 +28,19 @@ li {
 }
 
 .inputField {
-  width: 90vw;
+  width: 80vw;
 }
 
 .form-container {
   width: 90vw;
   margin: 0 auto;
+}
+
+.form-white {
+  background: rgba(255, 255, 255, .9);
+  border-radius: .5em;
+  padding: .5em;
+  margin-top: 3em;
 }
 
 .form-container .btn {
@@ -377,6 +374,20 @@ li {
   font-size: 0.8em;
 }
 
+#signupForm {
+  background: rgba(255, 255, 255, .9);
+  border-radius: .5em;
+  padding: .5em;
+  margin-top: 3em;
+}
+
+.signup-header h4 {
+  margin-top: 3em;
+}
+
+.secret-question {
+  color: black;
+}
 .signup-section {
   margin-bottom: 4em;
 }
@@ -403,8 +414,12 @@ li {
   margin-bottom: 4em;
 }
 
+#passSelect {
+  margin-bottom: 10em;
+}
+
 #login-link {
-  margin-bottom: 9em;
+  margin: 2em 0 10em 0;
 }
 
 .fade-title {

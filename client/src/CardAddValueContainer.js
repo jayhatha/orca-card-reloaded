@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import CardAddValue from './CardAddValue';
 import axios from 'axios';
-import store from './store';
 import { updateBalance } from './actions/index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 
 const mapDispatchToProps = {
   updateBalance
@@ -61,7 +60,7 @@ class CardAddValueContainer extends Component {
   // Axios call to post new card balance to database
   handleSubmitValue = e => {
     e.preventDefault();
-    var newBalance = parseInt(this.props.card.balance) + parseInt(this.state.inputBalance);
+    var newBalance = parseInt(this.props.card.balance, 10) + parseInt(this.state.inputBalance, 10);
     axios.post('/card/addvalue', {
       id: this.props.card.id,
       balance: newBalance

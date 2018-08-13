@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PaymentWidget from './PaymentWidget';
 import TextField from '@material-ui/core/TextField';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class CardAutoReload extends Component {
   constructor(props) {
