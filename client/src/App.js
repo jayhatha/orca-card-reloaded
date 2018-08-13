@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
 import axios from 'axios';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { connect, Provider } from 'react-redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import store from './store';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
-import Nav from './Navbar';
-import Home from './Home';
 import ProfileContainer from './ProfileContainer';
 import GetCardContainer from './GetCardContainer';
 import CardBalanceContainer from './CardBalanceContainer';
 import CardPassContainer from './CardPassContainer';
 import CardAddValueContainer from './CardAddValueContainer';
 import CardAutoReloadContainer from './CardAutoReloadContainer';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-
+import Nav from './Navbar';
+import Home from './Home';
 import Footer from './Footer';
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import store from './store';
 
 const mapDispatchToProps = {
   updateUser,
@@ -72,7 +71,6 @@ class App extends Component {
         this.props.updateUser(results.data);
         this.fetchCardData();
         }).catch( err => console.log(err))
-
     }
   }
 

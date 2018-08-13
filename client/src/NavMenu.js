@@ -48,7 +48,10 @@ class NavMenu extends React.Component {
             <MenuItem onClick={this.handleLogoutAndClose}>Logout</MenuItem>
           </div>
           ) : (
-            <MenuItem component={Link} to="/login" onClick={this.handleClose}>Login</MenuItem>
+          <div>
+            <MenuItem component={Link} to="/login" onClick={this.handleClose}>Log In</MenuItem>
+            <MenuItem component={Link} to="/signup" onClick={this.handleClose}>Sign Up</MenuItem>
+          </div>
         )}
         </Menu>
       </div>

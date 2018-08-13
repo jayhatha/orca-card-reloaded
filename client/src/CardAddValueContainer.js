@@ -58,6 +58,7 @@ class CardAddValueContainer extends Component {
     });
   }
 
+  // Axios call to post new card balance to database
   handleSubmitValue = e => {
     e.preventDefault();
     var newBalance = parseInt(this.props.card.balance) + parseInt(this.state.inputBalance);
