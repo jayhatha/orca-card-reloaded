@@ -36,6 +36,7 @@ class CardAutoReloadContainer extends Component {
     });
   }
 
+  // Axios post to update auto-reload in database
   handleSubmitAutoReload = e => {
     e.preventDefault();
     var newReload = parseInt(this.state.reloadValue)
@@ -43,17 +44,20 @@ class CardAutoReloadContainer extends Component {
       id: this.props.card.id,
       auto_reload: newReload
     }).then( result => {
+      // Update new auto-reload value in the store
       this.props.updateAutoReload(newReload)
       this.props.history.push("/profile");
     })
   }
 
+  // Axios post to make auto-reload null in database
   handleSubmitDisableReload = e => {
     e.preventDefault();
     axios.post('/card/auto_reload', {
       id: this.props.card.id,
       auto_reload: null
     }).then( result => {
+      // Update auto-reload to null in the store
       this.props.updateAutoReload(null)
       this.props.history.push("/profile");
     })
@@ -68,7 +72,7 @@ class CardAutoReloadContainer extends Component {
                         handleInputChange={this.handleInputChange}
                         handleSubmitAutoReload={this.handleSubmitAutoReload}
                         handleSubmitDisableReload={this.handleSubmitDisableReload}
-                        />
+        />
       </div>
     )
   }
