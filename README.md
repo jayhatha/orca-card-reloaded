@@ -39,20 +39,22 @@ We also provided a back end using Node, Express, and PostgreSQL, to demonstrate 
 | Method | Path | Action |
 | ------ |------| -------|
 | GET | '/' | index - homepage of site |
-| GET | '/auth/login' | returns new form to login |
 | POST | '/auth/login' | log in user |
-| GET | '/auth/signup' | returns new form to sign up |
 | POST | '/auth/signup' | creates new user |
-| GET | '/auth/logout' | log out user |
-
+| GET | '/auth/me/from/token' | verifies token |
+| POST | '/card/addvalue' | updates balance on a card |
+| POST | '/card/auto_reload' | updates auto-reload amount |
+| POST | '/card/addpass' | adds/updates pass on card |
+| POST | '/user/cards' | sends user's cards info to the front |
+| POST | '/user/edit' | edits a user's profile information |
 
 #### Database Models:
 
 | Model | Schema | Relationship(s) |
 | ----- |--------| ----------------|
-| User |  | has many Cards |
-| Card |  | has Activity |
-| Activity |  | belongs to Card |
+| User | first, last, username, email, dob, street, city, state, zip, question, answer, password | has many Cards |
+| Card | cvv, nickname, balance, pass, auto_reload, passenger_type, isactive, userId | has Activity |
+| Activity | cardId, route, amount | belongs to Card |
 
 ### Wireframing
 
