@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import { Link } from 'react-router-dom';
 
 const EditInfo = props => {
   return (
@@ -111,6 +112,7 @@ const EditInfo = props => {
               label="Zipcode"
               className="inputField"
               value={props.zip}
+              placeholder={props.zip}
               onChange={props.handleInputChange}
               margin="normal"
               required
@@ -118,8 +120,8 @@ const EditInfo = props => {
           </div>
 
           <button className="edit-button" id="button" type="submit" value="Edit Info">Save</button>
+          <Link to='/profile' className="cancel-button" id="button" type="button" value="Cancel">Cancel</Link>
         </form>
-          <button onClick="" className="cancel" id="button" type="button" value="Cancel">Cancel</button>
       </div>
   )
 }
