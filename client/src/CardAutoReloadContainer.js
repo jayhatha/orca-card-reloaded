@@ -46,6 +46,8 @@ class CardAutoReloadContainer extends Component {
           console.log('firing createNotification');
           NotificationManager.error(this.state.response, 'Error', 2500);
           break;
+        default:
+          break;
       }
     };
   };

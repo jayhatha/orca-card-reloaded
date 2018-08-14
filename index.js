@@ -5,7 +5,6 @@ const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
 const user = require('./routes/user');
 const card = require('./routes/card');
-const locked = require('./routes/locked');
 
 const port = process.env.port || 3001;
 
@@ -16,9 +15,8 @@ app.use(bp.urlencoded({ extended: false }));
 
 app.use(express.static(`${__dirname}/client/build`));
 app.use('/auth', auth);
-app.use('/user', user);
-app.use('/card', card);
-app.use('/locked', expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }), locked);
+app.use('/user', expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }), user);
+app.use('/card', expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }), card);
 
 app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`);
