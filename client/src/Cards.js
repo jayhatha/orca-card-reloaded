@@ -17,16 +17,10 @@ const Cards = props => {
         </div>
         <div className="card-bottom">
           <span className='card-serial'>{props.card.id}</span>
-          <span className='card-passes'>
-            {props.card.pass ?
-            (<p>PASS {props.card.pass}</p>) : ('')
-            }
-          </span>
-          <span className='card-passes'>
-            {props.card.auto_reload ?
-            (<p>AUTO-RELOAD {props.card.auto_reload}</p>) : ('')
-            }
-          </span>
+          <div className="card-pass-value">
+            {props.card.pass ? (<p className="card-passes">PASS {props.card.pass}</p>) : (<p className="card-passes">PASS: NONE</p>)}
+            {props.card.auto_reload ? (<p className='card-passes'>AUTO-RELOAD: ${props.card.auto_reload}</p>) : (<p className="card-passes">AUTO-RELOAD: DISABLED</p>)}
+          </div>
         </div>
       </div>
       <div className='card-buttons'>

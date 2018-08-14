@@ -79,70 +79,6 @@ li {
   padding: 3em 0 6em 0;
 }
 
-/*  === CARD STYLES LARGE === */
-
-@media screen and (min-width: 768px) {
-  .card-container {
-    width: 567px;
-    height: 270px;
-    margin-bottom: 30px;
-  }
-
-  .card-balance h1 {
-    font-size: 4rem;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .card-passes,
-  .card-serial {
-    font-size: 1rem;
-    display: inline-block;
-  }
-
-  .card-buttons {
-    text-align: center;
-    margin: 10px auto 0;
-  }
-}
-/* === CARD STYLES FOR PHONE === */
-
-@media screen and (max-width: 320px) {
-  .card-container {
-    width: 90vw;
-    height: 130px;
-    margin-bottom: 5px;
-  }
-
-  .card-balance {
-    font-size: 3rem;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .card-nickname h3 {
-    font-size: 0.5rem;
-    color: black;
-    margin: 0;
-  }
-
-  .card-top {
-    font-size: 0.5rem;
-    background-color: $card;
-  }
-
-  .card-passes,
-  .card-serial {
-    font-size: 0.5rem;
-    display: inline-block;
-  }
-
-  .card-buttons {
-    text-align: center;
-    margin: 2px auto 0;
-  }
-}
-
 /* === CARD DEFAULT STYLES === */
 
 .card-container {
@@ -153,7 +89,7 @@ li {
   background-color: $card;
   padding-bottom: 5px;
   width: 90vw;
-  height: 240px;
+  height: 57vw;
   max-width: 100%;
   border-radius: 0.6rem;
   margin: 20px auto;
@@ -185,7 +121,7 @@ li {
 .card-balance h1 {
   font-size: 3rem;
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: .5em;
 }
 
 .card-bottom {
@@ -193,12 +129,16 @@ li {
   justify-content: space-between;
   margin: 3px;
   padding: 0;
+  text-align: right;
 }
 
 .card-passes,
 .card-serial {
-  font-size: 1.2rem;
-  display: inline-block;
+  font-size: 1rem;
+}
+
+.card-passes {
+  margin: 0;
 }
 
 .card-buttons {
@@ -209,6 +149,68 @@ li {
 
 .card-activity {
   margin-bottom: 3em;
+}
+
+/*  === CARD STYLES LARGE === */
+
+@media screen and (min-width: 768px) {
+  .card-container {
+    width: 380px;
+    height: 240px;
+    margin-bottom: 5px;
+  }
+
+  .card-balance h1 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-passes,
+  .card-serial {
+    font-size: 1rem;
+  }
+
+  .card-buttons {
+    text-align: center;
+    margin: 10px auto 0;
+  }
+}
+/* === CARD STYLES FOR PHONE === */
+
+@media screen and (max-width: 320px) {
+  .card-container {
+    width: 90vw;
+    height: 57vw;
+    margin-bottom: 5px;
+  }
+
+  .card-balance {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-nickname h3 {
+    font-size: 0.5rem;
+    color: black;
+    margin: 0;
+  }
+
+  .card-top {
+    font-size: 0.5rem;
+    background-color: $card;
+  }
+
+  .card-passes,
+  .card-serial {
+    font-size: 0.5rem;
+  }
+
+  .card-buttons {
+    text-align: center;
+    margin: 2px auto 0;
+  }
 }
 
 .map-wrapper {
