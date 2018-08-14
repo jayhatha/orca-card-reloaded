@@ -43,6 +43,8 @@ class SignupContainer extends Component {
           case 'error':
             NotificationManager.error(this.state.response, 'Error', 2500);
             break;
+          default:
+            break;
         }
       };
     };

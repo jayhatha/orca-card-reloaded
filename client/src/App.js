@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NotificationContainer, NotificationManager} from 'react-notifications';
 import { connect, Provider } from 'react-redux';
 import { updateUser, updateCard, resetUser } from './actions/index';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import store from './store';
 import LoginContainer from './LoginContainer';
 import SignupContainer from './SignupContainer';
@@ -18,6 +18,8 @@ import ConnectedEditInfo from './EditInfoContainer';
 import Nav from './Navbar';
 import Home from './Home';
 import Footer from './Footer';
+import ContactInfo from './ContactInfo';
+import ErrorPage from './ErrorPage';
 
 const mapDispatchToProps = {
   updateUser,
@@ -103,16 +105,20 @@ class App extends Component {
           <div className="App">
             <Nav/>
             <NotificationContainer />
-            <Route exact path="/" component= {() => <Home user={this.props.user}/>} />
-            <Route exact path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
-            <Route exact path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
-            <Route exact path="/profile" component = {() => <ProfileContainer user={this.props.user} card={this.props.card} />} />
-            <Route exact path="/getcard" component = {() => <GetCardContainer/>} />
-            <Route exact path="/addpass" component = {() => <CardPassContainer/>} />
-            <Route exact path="/reload" component = {() => <CardBalanceContainer/>} />
-            <Route exact path="/reload/addvalue" component = {() => <CardAddValueContainer/>} />
-            <Route exact path="/reload/auto-reload" component = {() => <CardAutoReloadContainer/>} />
-            <Route exact path="/edit" component = {() => <ConnectedEditInfo />} />
+            <Switch>
+              <Route exact path="/" component= {() => <Home user={this.props.user}/>} />
+              <Route path="/signup" component = {() => <SignupContainer liftToken={this.liftTokenToState} />} />
+              <Route path="/login" component = {() => <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route path="/profile" component = {() => this.props.user.id ? <ProfileContainer user={this.props.user} card={this.props.card} /> : <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route path="/getcard" component = {() => <GetCardContainer/>} />
+              <Route path="/addpass" component = {() => this.props.user.id ? <CardPassContainer/> : <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route exact path="/reload" component = {() => this.props.user.id ? <CardBalanceContainer/> : <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route exact path="/reload/addvalue" component = {() => this.props.user.id ? <CardAddValueContainer/> : <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route exact path="/reload/auto-reload" component = {() => this.props.user.id ? <CardAutoReloadContainer/> : <LoginContainer liftToken={this.liftTokenToState} />} />
+              <Route path="/contact" component = {() => <ContactInfo/>} />
+              <Route path="/edit" component = {() => <ConnectedEditInfo />} />
+              <Route component = {() => <ErrorPage/>} />
+            </Switch>
             <Footer className="footer"/>
           </div>
         </Router>
