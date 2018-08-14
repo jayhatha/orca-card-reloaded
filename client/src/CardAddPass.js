@@ -59,7 +59,7 @@ class CardAddPass extends Component {
               <option value={"PugetPass " + this.getMonth() + " $4.50"}>PugetPass $4.50 ($162.00)</option>
               <option value={"PugetPass " + this.getMonth() + " $5.25"}>PugetPass $5.25 ($189.00)</option>
               <option value={"PugetPass " + this.getMonth() + " $10.00"}>PugetPass $10.00 ($360.00)</option>
-              <option value="'WSF Vashon Island Ferry ' + this.getMonth()">WSF Vashon Island Ferry $10.00 ($360.00)</option>
+              <option value={"WSF Vashon Island Ferry " + this.getMonth()}>WSF Vashon Island Ferry $10.00 ($360.00)</option>
             </select>
           </label>
           <br />
