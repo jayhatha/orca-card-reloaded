@@ -91,7 +91,7 @@ li {
 .card-balance h1 {
   font-size: 3rem;
   margin-top: 0;
-  margin-bottom: 40px; }
+  margin-bottom: .5em; }
 
 .card-bottom {
   display: flex;
