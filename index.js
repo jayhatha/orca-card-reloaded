@@ -6,7 +6,7 @@ const auth = require('./routes/auth');
 const user = require('./routes/user');
 const card = require('./routes/card');
 
-const port = process.env.port || 3001;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
