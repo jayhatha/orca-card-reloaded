@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import { updateUser, updateCard, resetUser} from './actions/index';
 import { connect } from 'react-redux';
-import logo from './OrcaLogo.png';
+import logo from './assets/img/OrcaLogo.png';
 import NavMenu from './NavMenu';
 
 const mapDispatchToProps = {

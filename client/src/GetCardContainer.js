@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import RetailLocation from './RetailLocation';
 import ReactMapboxGl, {Marker, Popup} from "react-mapbox-gl";
 import locations from './retailLocationData';
+import marker from './assets/img/marker.png';
 
 class GetCardContainer extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class GetCardContainer extends Component {
                 <Marker
                   coordinates={[location.lng, location.lat]}
                   anchor="bottom">
-                  <img id='map-icon' alt='icon-logo for webpage' src='http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png'/>
+                  <img id='map-icon' alt='map marker' src={marker}/>
                 </Marker>
                 {location.lng === this.state.currentLng ? (
                   <Popup coordinates={[location.lng, location.lat]}
