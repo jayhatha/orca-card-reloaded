@@ -2,7 +2,7 @@
 
 Live site: https://orca-card-reloaded.herokuapp.com/
 
-![orca-card-mobile](/client/src/orca-card-mobile.png/?raw=true)
+![orca-card-mobile](/client/src/assets/img/orca-card-mobile.png/?raw=true)
 
 ### Description
 
@@ -60,7 +60,7 @@ We also provided a back end using Node, Express, and PostgreSQL, to demonstrate 
 
 Preliminary sketches were made in Adobe XD to plan out the flow of the site.
 
-![wireframes](/client/src/orca-wireframes.png?raw=true)
+![wireframes](/client/src/assets/img/orca-wireframes.png?raw=true)
 
 ### Project Tracking
 
@@ -78,7 +78,7 @@ Unfortunately, that means we weren't able to tackle things like special pass cat
 
 ### Front End Styling
 
-![responsive-site-image](/client/src/orca-responsive.png/?raw=true)
+![responsive-site-image](/client/src/assets/img/orca-responsive.png/?raw=true)
 
 While we did use the Material-UI for some aspects of our site styling (notably for form elements), we  didn't want ORCA Card Reloaded to be "just another Material Design site," so most of the styling was done by hand using CSS and Sass. 
 
