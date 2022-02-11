@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
-    "ajv": "^6.5.5",
+    "ajv": "^6.12.3",
     "axios": "^0.18.0",
     "exec-sh": "^0.3.2",
     "mapbox-gl": "^0.48.0",
